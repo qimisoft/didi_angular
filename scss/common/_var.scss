@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/**
+ * global color define
+ * 
+ * $color-orange: 主色：用于顶部条标题、按钮、icon及其他重要提示
+ * $color-dark  : 首页叫车按钮等类似 深黑色
+ * $color-green : 绿色
+ * $color-bg    : 背景色
+ * $color-e9    : 分界线及边框颜色
+ * $color-46    : 一般用于正文
+ * $color-c7    : 一般用于次于正文内容，如日期
+ */
+$color-white    : #ffffff !default;
+$color-dark     : #4a4c5b !default;
+$color-dark2    : #464646 !default;
+$color-36       : #363636 !default;
+$color-80       : #808080 !default;
+$color-6f       : #6f6f6f !default;
+$color-b2       : #b2b2b2 !default;
+$color-c6       : #c6c6c6 !default;
+$color-e4       : #e4e4e4 !default;
+$color-bg       : #f3f4f5 !default;
+$color-f2       : #f2f2f2 !default;
+$color-orange   : #ff7800 !default;
+$color-green    : #3db29b !default;
+$color-24       : #242424 !default;
+$color-46       : #464646 !default;
+$color-92       : #929292 !default;
+$color-a4       : #a4a4a4 !default;
+$color-e9       : #e9e9e9 !default;
+$color-47       : #474747 !default;
+$color-c7       : #c7c7c7 !default;
+$color-66       : #666666 !default;
+
+
+/**
+ * global font size define
+ *
+ * $font-34 : 用于少数重要标题，如顶部条标题等
+ * $font-32 : 用于较为重要的按钮文字，如一行一个的按钮
+ * $font-28 : 用于一些较为重要的文字或操作，如小标题
+ * $font-26 : 用于大多数文字，如正文
+ * $font-24 : 用于大多数文字，如正文之下小蚊子
+ * $font-22 : 用于标注、注释，如对图解释
+ */
+$font-34 : 34px !default;
+$font-32 : 32px !default;
+$font-28 : 28px !default;
+$font-26 : 26px !default;
+$font-24 : 24px !default;
+$font-22 : 22px !default;
+
+/**
+ * item padding-left & padding-right
+ */
+$padding-lf : 16px;
+$padding-rt : 16px;
+
+
+/**
+ * border
+ */
+$border-default : 1px solid $color-e9 !default;
+
+
+
+
+
+

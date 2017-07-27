@@ -1,0 +1,42 @@
+<ion-view view-title="选择城市" hide-tab-bar="true" hide-nav-bar="true" cache-view="false" can-swipe-back="false">
+    <ion-header-bar class="search__box">
+        <div class="input-holder">
+            <input type="text" ng-model="vm.search" placeholder="城市中文名字或拼音" ng-blur="vm.showCode()">
+        </div>
+        <div class="input-holder" style="width: 35%;">
+            <div class="like-input" ng-click="vm.goToSearchPlace()" ng-bind="vm.options.searchHolder"></div>
+        </div>
+        <div class="search__btn--cancle" ng-click="vm.back()">取消</div>
+    </ion-header-bar>
+    <div class="city__citychoose">
+        <ion-content class="city__bg" overflow-scroll="false" scroll="false">
+            <div class="city__content">
+                <ion-scroll class="inners" scrollbar-x="false" scrollbar-y="false" direction="y">
+                    <div class="cur-city" ng-if="!vm.search">当前城市：{{vm.curCity.cityName}}</div>
+                    <ul class="city__list" ng-if="!vm.search && vm.hotCityList && vm.hotCityList.length>0">
+                        <li class="city__item--wrapper divider">
+                            <div class="city__item--divider" id="anchor__热门"><em class="hot-img"></em>&nbsp;热门城市</div>
+                        </li>
+                        <li class="city__item--wrapper " ng-repeat="item in vm.hotCityList">
+                            <div class="city__item" ng-click="vm.choose(item)" ng-bind="item.cityName"></div>
+                        </li>
+                    </ul>
+                    <ul class="city__list">
+                        <li class="city__item--wrapper" ng-class="{'divider': item.divider}" ng-repeat="item in vm.cityList | filter:vm.search as filterResult">
+                            <div class="city__item--divider" id="anchor__{{item.divider}}" ng-if="item.divider" ng-bind="item.divider" ng-show="!vm.search || (vm.search && vm.search==='{{item.divider}}')"></div>
+                            <div class="city__item" ng-bind="item.cityName" ng-click="vm.choose(item)" ng-if="!item.divider"></div>
+                        </li>
+                        <div class="city__item--noresult" ng-style="{'height':'{{vm.noresultHeight}}px'}" ng-if="filterResult.length==0">
+                            <picture class="empty-img"></picture>
+                            <p>暂无搜索结果</p>
+                        </div>
+                    </ul>
+                </ion-scroll>
+            </div>
+        </ion-content>
+        <div class="city__alphabet" ng-if="!vm.search">
+            <div class="city__letter" ng-click="vm.gotoAnchor('热门')"><em class="hot-img"></em></div>
+            <div class="city__letter" ng-click="vm.gotoAnchor('{{letter}}')" ng-repeat="letter in vm.letterIndexs">{{letter}}</div>
+        </div>
+    </div>
+</ion-view>

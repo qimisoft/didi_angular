@@ -1,0 +1,56 @@
+/*
+* define the text style
+*/
+
+@mixin setText($paddingTop, $fontSize, $fontColor) {
+    padding-top: px2rem($paddingTop);
+    text-align: center;
+    font-size: px2rem($fontSize);
+    color: $fontColor;
+}
+
+.waitAnswer_cont {
+    background-color: #fff;
+    .wa_lookForCar {
+        @include setText(190px, 36px, $color-46);
+    }
+    .wa_priorNotice {
+        @include setText(24px, 26px, $color-a4);
+    }
+    .wa_ShowCanvas {
+        width: 80%;
+        margin: 0 auto;
+        #canvas {
+            width: px2rem(600px) !important;
+            height: px2rem(560px) !important;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.wa_cancelOrder {
+    text-align: center;
+    position: fixed;
+//    left: 3%;
+    bottom: 4%;
+    width: 100%;
+    .wa_cancelButton {
+//        width: 94%;
+        margin: 0 px2rem(20px);
+        bottom: px2rem(80px);
+        border: 1px solid $color-orange;
+        border-radius: px2rem(10px);
+        height: px2rem(90px);
+        line-height: px2rem(90px);
+        font-size: px2rem(36px);
+        color: $color-orange;
+        background-color: $color-white;
+    }
+    .wa_freeForCancel {
+        font-size: px2rem(26px);
+        color: $color-a4;
+        padding-top: px2rem(30px);
+    }
+}

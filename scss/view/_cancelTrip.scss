@@ -1,0 +1,65 @@
+@mixin setButtonStyle($backColor, $fontColor) {
+    background-color: $backColor;
+//    width: 96%;
+    margin: px2rem(30px);
+    height: px2rem(90px);
+    line-height: px2rem(90px);
+    text-align: center;
+    font-size: px2rem(36px);
+    color: $fontColor;
+    border-radius: px2rem(10px);
+}
+
+.cancelTrip_content {
+    .ct_cancelInstructions {
+        background-color: $color-white;
+//        width: 96%;
+        margin: px2rem(20px);
+        border-radius: px2rem(6px);
+        .ct_img {
+            padding: px2rem(104px) 0 px2rem(20px);
+            width: 100%;
+            text-align: center;
+            .ct_remind {
+            	display: inline-block;
+            	@include sprite(70px,66px,130px,126px,288px,197px);
+            }
+        }
+        .ct_text {
+            text-align: center;
+            font-size: px2rem(36px);
+            color: #464546;
+            padding: px2rem(30px) px2rem(30px) px2rem(104px) px2rem(30px);
+        }
+        .ct_padding {
+            padding-top: px2rem(30px);
+            font-size: px2rem(30px);
+        }
+        .ct_paddingBottom {
+            padding-bottom: px2rem(104px);
+        }
+    }
+    .ct_tempNotCancel {
+        @include setButtonStyle(#4a4c5b, $color-white);
+    }
+    .ct_ConfCancel {
+        @include setButtonStyle($color-bg, $color-orange);
+        border: 1px solid $color-orange;
+    }
+}
+
+.ct_cancelRule {
+    position: fixed;
+    bottom: 8%;
+//    left: 44%;
+    width: 100%;
+    font-size: px2rem(26px);
+    color: #a4a4a4;
+    text-align: center;
+    .ct_LittleRemind{
+    	display: inline-block;
+    	padding-right:px2rem(40px);
+    	vertical-align: middle;
+    	@include sprite(20px,16px,30px,26px,660px,23px);
+    }
+}

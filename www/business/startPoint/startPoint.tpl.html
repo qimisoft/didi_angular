@@ -1,0 +1,21 @@
+<ion-view view-title="选择出发地址" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-header-bar class="search__box city-fixed" ng-if="vm.isMapShow">
+        <div class="city-holder" ng-click="vm.goToCity()">
+            <span ng-bind="vm.mapCenter.cityName"></span>
+        </div>
+        <div class="input-holder">
+            <div class="like-input" ng-click="vm.gotoStart()">您在哪上车</div>
+        </div>
+        <div class="search__btn--cancle" ng-click="vm.back()">取消</div>
+    </ion-header-bar>
+    <ion-content overflow-scroll="false" scroll="false">
+        <div id="amap-start" ng-show="vm.isMapShow">
+            <div class="start_marker"></div>
+            <div class="address-holder">
+                <div>{{vm.mapCenter.displayName}}<span ng-show="vm.mapCenter.displayName==vm.recommendPoint.displayName" class="recommend">推荐</span></div>
+                <div class="detail" ng-bind="vm.mapCenter.address"></div>
+                <div class="btn" ng-click="vm.choose()">确定</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

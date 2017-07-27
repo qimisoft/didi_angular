@@ -1,0 +1,21 @@
+<ion-view view-title="常用地址" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" class="pager__address">
+        <div class="inners">
+            <ion-list ng-show="vm.addShow" can-swipe="true" show-delete="false" show-reorder="false" class="add-list">
+                <ion-item ng-repeat="item in vm.addPoint" on-swipe-left="item.showDelelte=true" on-swipe-right="item.showDelelte=false" ng-class="{'show-delete':vm.showDelelte&&item.point,'trans-left':item.showDelelte&&item.point}">
+                    <div class="item-inners">
+                        <pic ng-click="item.showDelelte=true"></pic>
+                        <div ng-click="vm.goToSearch(item)">
+                            <em ng-class="item.type"></em>
+                            <h2 ng-bind="item.name"></h2>
+                            <p ng-if="!item.point" ng-bind="item.placeHolder"></p>
+                            <p ng-if="item.point" ng-bind="item.point.displayName"></p>
+                        </div>
+                        <i></i>
+                    </div>
+                    <div ng-if="item.point" ng-class="{'show':item.showDelelte}" class="delete-btn" ng-click="vm.deleteItem(item)">删除</div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

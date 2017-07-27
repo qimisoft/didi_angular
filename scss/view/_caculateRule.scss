@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@mixin setCaculateRule($paddingleft, $color, $height, $line-height, $font-size) {
+    padding-left: px2rem($paddingleft);
+    color: $color;
+    height: px2rem($height);
+    line-height: px2rem($line-height);
+    font-size: px2rem($font-size);
+}
+
+$p_paddingleft: px2rem(20px)!default;
+$p_paddingright:px2rem(20px)!default;
+/*.caculate_Rule {
+    .cr_baseP {
+        // padding-left: px2rem(20px);
+        // color: $color-a4;
+        // height: px2rem(68px);
+        // line-height: px2rem(68px);
+        // font-size: px2rem(28px);
+        @include setCaculateRule(20px, $color-a4, 68px, 68px, 28px);
+    }
+    p {
+        margin: 0 px2rem(3px);
+        text-align: left i {
+            width: px2rem(14px);
+            height: px2rem(14px);
+        }
+    }
+    .cr_explain {
+        @include setCaculateRule($p_paddingleft, $color-a4, 30px, 0, 26px);
+        padding-right: $p_paddingleft;
+        // padding:px2rem(10px); 
+        margin-bottom: px2rem(18px);
+        margin-left:px2rem(20px);
+    }
+    .cr_otherExp {
+        @include setCaculateRule($p_paddingleft, $color-a4, 68px, 68px, 28px);
+        margin: px2rem(65px) 0px 0px px2rem(20px);
+    }
+    .cr_price {
+        @include setCaculateRule($p_paddingleft, #ff8803, 68px, 68px, 30px);
+        margin-top: px2rem(23px);
+        margin-left:px2rem(20px);
+    }
+    .baseTable {
+        font-size: px2rem(28px);
+        .cr_tr {
+            color: #ff8803;
+            font-size: px2rem(30px);
+            font-weight: bolder;
+        }
+    }
+    .cr_ptext {
+        text-align: left;
+    }
+    .cr_fuelService{
+      text-align: left;
+    }
+    // .h_lh_68 {
+    //     height: px2rem(68px);
+    //     line-height: px2rem(68px);
+    // }
+    // .l_h_30 {
+    //     line-height: px2rem(30px);
+    // }
+    // .f_s_26 {
+    //     font-size: px2rem(26px);
+    // }
+    .f_s_28 {
+        font-size: px2rem(28px);
+    }
+    // .f_s_30 {
+    //     font-size: px2rem(30px);
+    //     color: #ff8803;
+    // }
+    // .c_a4a4a4 {
+    //     color: $color-a4;
+    // }
+    // .c_464646 {
+    //     color: $color-46;
+    // }
+    // .p_l_20 {
+    //     padding-left: px2rem(20px);
+    // }
+    // .p_r_20 {
+    //     padding-right: px2rem(20px);
+    // }
+    // .m_t_23 {
+    //     margin-top: px2rem(23px);
+    // }
+    // .m_t_27 {
+    //     margin-top: px2rem(27px);
+    // }
+    // .m_b_18 {
+    //     margin-bottom: px2rem(18px);
+    // }
+    .baseTable {
+        width: 94.667%;
+        text-align: center;
+        margin: 0 auto;
+        &>tbody {
+            th {
+                background-color: #ffe4cc;
+                height: px2rem(70px);
+                line-height: px2rem(70px);
+                vertical-align: middle;
+            }
+            tr {
+                td {
+                    height: px2rem(70px);
+                    line-height: px2rem(70px);
+                    vertical-align: middle;
+                }
+                &:nth-child(odd) td {
+                    background-color: #ffe4cc;
+                    .tbl_child td {
+                        background-color: #ffe4cc;
+                    }
+                }
+                &:nth-child(even) td {
+                    background-color: $color-white;
+                    .tbl_child td {
+                        background-color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+    .tbl_child {
+        .tbl_child_td {
+            width: 21%;
+            vertical-align: baseline;
+        }
+        &:last-child {
+            text-align: left;
+        }
+    }
+    // .f_left {
+    //     float: left;
+    // }
+    .icon_attention {
+        float: left;
+        padding-right: px2rem(20px);
+        margin-top: px2rem(27px);
+        @include sprite(7px, 7px, 18px, 18px, 98px, 16px);
+        //background: url(../../www/img/dengdai@3x.png) no-repeat;
+        //background-size: px2rem(14px) px2rem(14px);
+    }
+    .h_20 {
+        height: px2rem(20px);
+    }
+}*/
+.caculate_Rule{
+  /*  .title{
+        overflow: hidden;
+        margin-top: px2rem(20px);
+        .line{
+            width: px2rem(138px);
+            float:left;
+        }
+       .label{
+            font-size:px2rem(30px);
+            color:#ff8803;
+            float:left;
+
+        }
+    }*/
+    .box-con{width:100%;text-align: center;position: relative;  color:#ff8803;font-size:px2rem(30px); margin-top: px2rem(30px)}
+    .box-con:before{position: absolute;content: "";height: 1px;width: px2rem(138px);background: #ddd;right:px2rem(150px);top: 8px;}
+    .box-con:after{position: absolute;content: "";height: 1px;width: px2rem(138px);background: #ddd;left:px2rem(150px);top: 8px;}
+    $f_s_26: px2rem(26px);
+    $f_s_30: px2rem(30px);
+    $m_l_5:5%;  //margin_left:5%;
+    $width_90:90%;//width:90%;
+    $border_t:1px solid rgba(169, 169, 169, 0.3);
+    $color_a4a4a4:#a4a4a4;
+    .tbody{
+        margin-top: px2rem(20px);
+        font-size: px2rem(30px);
+        border-bottom: $border_t ;
+        width: $width_90;
+        margin-left: 5%;
+        .tr{
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            line-height: px2rem(60px);
+            color:#a4a4a4;
+            border-top: 1px solid rgba(169,169,169,0.3) ;
+            overflow: hidden;
+
+            .td1{
+                width: 20%;
+                float: left;
+                border-right: 1px solid rgba(169,169,169,0.3);
+            }
+            .td2{
+                width: 20%;
+                float: left;
+                border-right: 1px solid rgba(169,169,169,0.3);
+            }
+            .td3{
+                width: 60%;
+                float: left;
+            }
+        }
+
+    }
+    @mixin mn{
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .method{
+        color:#ff8803;
+        font-size: px2rem(30px);
+        @include mn;
+        height: px2rem(70px);
+        line-height: px2rem(70px);
+    }
+    .notice{
+        color:#a4a4a4;
+        font-size: px2rem(24px);
+        @include mn;
+        line-height: px2rem(35px);
+    }
+    .otherFee{
+        width: 90%;
+        margin-left: $m_l_5;
+        border-bottom: 1px solid rgba(169, 169, 169, 0.3);
+        padding-bottom: px2rem(8px);
+        .feeTitle{
+            margin-top: px2rem(16px);;
+            font-size: $f_s_30;
+
+            padding:0 0 px2rem(8px) 0;
+            color:#464646;
+        }
+        .feeNotice{
+            font-size: $f_s_26;
+            line-height: px2rem(42px);
+            color:$color_a4a4a4;
+        }
+        .feeCategory{
+            color:$color_a4a4a4;
+            line-height: px2rem(40px);
+            font-size: $f_s_26;
+        }
+    }
+
+}

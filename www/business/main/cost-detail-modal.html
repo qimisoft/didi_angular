@@ -1,0 +1,41 @@
+<div class="modal-outter-bg"></div>
+<ion-modal-view class="md-impt">
+    <div class="modal-inner-bg" ng-click="vm.closeModal()"></div>
+    <div class="modal-container modal-white">
+        <div class="model-header">费用明细<em class="close" ng-click="vm.closeModal()"></em></div>
+        <ul class="model-inner">
+            <li class="model-inner-part">
+                <div class="inners" ng-if="vm.cost.startPrice">
+                    起步费<span class="money">¥{{vm.cost.startPrice|fen2yuan}}</span>
+                </div>
+                <div class="inners" ng-if="vm.cost.tripPrice">里程费（{{vm.cost.trip}}公里）<span class="money">¥{{vm.cost.tripPrice|fen2yuan}}</span>
+                </div>
+                <div class="inners" ng-if="vm.cost.durationPrice">
+                    时长费（{{vm.cost.duration|minutes2Hours}}）<span class="money">¥{{vm.cost.durationPrice|fen2yuan}}</span>
+                </div>
+                <div class="inners" ng-if="vm.cost.servicePrice">
+                    服务费<span class="money">¥{{vm.cost.servicePrice|fen2yuan}}</span>
+                </div>
+                <div class="inners" ng-if="vm.cost.otherPrice">
+                    其他费用<span class="money">¥{{vm.cost.otherPrice|fen2yuan}}</span>
+                </div>
+                <div class="inners" ng-if="vm.cost.dynamicPrice">
+                    需求过旺临时调价<span class="money">¥{{vm.cost.dynamicPrice|fen2yuan}}</span>
+                </div>
+                <div class="inners bold">
+                    总额：<span class="money heighlight">¥{{vm.cost.price|fen2yuan}}</span>
+                </div>
+            </li>
+            <li class="model-inner-part">
+                <div class="inners bold bigger">
+                    预授权金额：<span class="money heighlight bigger">  ¥{{vm.cost.guarantee|fen2yuan}}</span>
+                </div>
+            </li>
+        </ul>
+        <div class="model-footer">
+            <p>预授权说明：</p>
+            <p class="tip">实际费用若未超过预授权金额，扣除实际费用后余额将退回您的账户</p>
+        </div>
+        <div class="model-btn"><span ng-click="vm.goToIndex('caculateRule')">查看计费规则</span></div>
+    </div>
+</ion-modal-view>

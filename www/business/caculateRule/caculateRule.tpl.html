@@ -1,0 +1,141 @@
+<ion-view view-title="计价规则" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" style="background: #ffffff">
+        <div class="caculate_Rule">
+            <p class="cr_baseP">基本费用</p>
+
+            <table class='baseTable f_s_28' >
+                <tr class="cr_tr">
+                    <th style="width: 18%">车型</th>
+                    <th style="width: 18%">起步价</th>
+                    <th>单位</th>
+                </tr>
+                <tr ng-repeat="item in vm.ruleList">
+                    <td>{{vm.parseCarType(item.rideType)}}</td>
+                    <td>{{item.priceRule.startPrice}}元</td>
+                    <td><span ng-if="item.priceRule.startDistance>0">起步价包含{{item.priceRule.startDistance}}公里。</span>{{item.priceRule.normalUnitPrice}}元／公里、{{item.priceRule.timeUnitPrice}}元／分钟</td>
+                </tr>
+                <!--</div>-->
+            <!--<tr>-->
+                <!--<td>经济型</td>-->
+                <!--<td>0元</td>-->
+                <!--<td>2.4元／公里、0.4元／分钟</td>-->
+            <!--</tr>-->
+
+            <!--<tr>-->
+                <!--<td>舒适型</td>-->
+                <!--<td>15元</td>-->
+                <!--<td>2.9元／公里、0元／分钟</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>商务型</td>-->
+                <!--<td>19元</td>-->
+                <!--<td>2.9元／公里、0元／分钟</td>-->
+            <!--</tr>-->
+
+            <!--<tr>-->
+                <!--<td>商务型</td>-->
+                <!--<td>25元</td>-->
+                <!--<td>4.5元／公里、0元／分钟</td>-->
+            <!--</tr>-->
+            </table>
+            <p class="cr_price" >
+                <i class="icon_attention" ></i>
+                <span>总费用＝起步价＋里程费＋时长费＋其它</span></p>
+            <p class="cr_explain">说明：随叫随到，预约用车服务中产生的高速费，停车费，长途服务费，夜间服务费等费用需要用户额外支付，参看其他费用。</p>
+            <p class="cr_otherExp" >其他费用</p>
+            <table class='baseTable f_s_28' >
+            <tr class="cr_tr">
+                <th style="width: 25%;">费用项目</th>
+                <th>费用说明</th>
+            </tr>
+            <tr>
+                <td>最低消费</td>
+                <td>
+                    <p class="cr_ptext">里程费、时长费合计不足最低消费时，直接按最低消费额计费：</p>
+                    <table class="tbl_child">
+                        <tr ng-repeat="item in vm.ruleList track by $index">
+                            <td class="tbl_child_td">{{item.rideType | translate: 'rideType'}}:</td>
+                            <td >实时用车最低{{item.priceRule.minCharge}}元，预约用车最低{{item.priceRule.appointmentMinCharge}}元</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+                <tr>
+                    <td>燃油服务费</td>
+                    <td >
+                        <p class="cr_fuelService" ng-repeat="item in vm.ruleList">{{vm.parseCarType(item.rideType)}}:{{item.priceRule.fuelFee}}元</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>低速费</td>
+                    <td >
+                        <p>速度<12公里/小时为低速,乘客未按约定时间到达/迟到,计费也将按此标准，并显示在低速费中；</p>
+                        <p class="cr_fuelService"  ng-repeat="item in vm.ruleList">{{vm.parseCarType(item.rideType)}}:{{item.priceRule.lowSpeedTimeUnitPrice}}元/分钟</p>
+                    </td>
+                </tr>
+            <tr>
+                <td>长途服务费</td>
+                <td >
+                    <table class="tbl_child">
+                        <tr ng-repeat="item in vm.ruleList track by $index">
+                            <td class="tbl_child_td">{{item.rideType | translate: 'rideType'}}:</td>
+                            <td >里程超过{{item.priceRule.emptyDistance}}公里，按{{item.priceRule.emptyDrivingUnitPrice}}元／公里收取</td>
+                        </tr>
+                    </table>
+                    <!--<p ng-repeat="item in vm.ruleList">-->
+                        <!--<div class="td_left">{{vm.parseCarType(item.rideType)}}:</div>-->
+                        <!--<div class="td_right">里程超过{{item.priceRule.emptyDistance}}公里，按{{item.priceRule.emptyDrivingUnitPrice}}元／公里收取</div>-->
+                    <!--</p>-->
+                    <!--<p>快车：里程超过12公里，按1元／公里收取</p>-->
+                    <!--<p>舒适型：里程超过12公里，按1.3元／公里收取</p>-->
+                    <!--<p>商务型：里程超过12公里，按2.3元／公里收取</p>-->
+                    <!--<p>豪华型：里程超过10公里，按2.5元／公里收取</p>-->
+                </td>
+            </tr>
+            <tr>
+                <td>夜间服务费</td>
+                <td >
+                    <table class="tbl_child">
+                        <tr ng-repeat="item in vm.ruleList track by $index">
+                            <td class="tbl_child_td">{{item.rideType | translate: 'rideType'}}:</td>
+                            <td >夜间（{{item.priceRule.nightBegin}}-<span ng-if="item.priceRule.nightBegin>item.priceRule.nightEnd">次日</span>{{item.priceRule.nightEnd}})行驶时，按{{item.priceRule.nightDrivingUnitPrice}}元／公里收取</td>
+                        </tr>
+                    </table>
+                    <!--<p ng-repeat="item in vm.ruleList" ng-if="item.priceRule.nightBegin!=item.priceRule.nightEnd">-->
+                        <!--<div class="td_left">{{vm.parseCarType(item.rideType)}}:</div>-->
+                        <!--<div class="td_right">夜间（{{item.priceRule.nightBegin}}-<span ng-if="item.priceRule.nightBegin>item.priceRule.nightEnd">次日</span>{{item.priceRule.nightEnd}})行驶时，按{{item.priceRule.nightDrivingUnitPrice}}元／公里收取</div>-->
+                    <!--</p>-->
+                    <!--<p>快车：夜间（23:00-次日05:00）行驶时，按0.8元／公里收取</p>-->
+                    <!--<p>舒适型：夜间（23:00-次日05:00）行驶时，按0.7元／公里收取</p>-->
+                    <!--<p>商务型：夜间（23:00-次日05:00）行驶时，按2.3元／公里收取</p>-->
+                    <!--<p>豪华型：夜间（23:00-次日05:00）行驶时，按02.3元／公里收取</p>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>取消订单费用</td>
+                <td>
+                    <p>司机接单1分钟内免费取消，超过可能会产生相应费用。开始服务后订单不可取消。</p>
+                </td>
+            </tr>
+
+                <tr>
+                    <td>高速费、路桥费、停车费</td>
+                    <td>
+                        <p>按行驶过程中司机实际垫付的费用收取</p>
+                    </td>
+                </tr>
+
+                <tr>
+                <td>动态溢价</td>
+                <td>
+                    <p>
+                        因高峰时段用车资源紧张，可能会溢价，敬请谅解
+                    </p>
+                </td>
+            </tr>
+        </table>
+            <p class="h_20"></p>
+        </div>
+    </ion-content>
+</ion-view>

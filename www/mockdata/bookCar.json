@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "result": {
+        "clat": null,
+        "clng": null,
+        "comboDistance": null,
+        "comboFee": null,
+        "comboTime": null,
+        "endName": "上海市第一人民医院(南院)",
+        "estimateAmt": 21020,
+        "flat": "31.24535",
+        "flng": "121.48442",
+        "orderNo": "20170424172918552155",
+        "orderState": "01",
+        "orderTime": "2017-04-24 17:29:19",
+        "passengerPhone": "15216661448",
+        "rideType": "100",
+        "startName": "中国电信上海信息网络部",
+        "tlat": "31.03906",
+        "tlng": "121.22564",
+        "type": "0"
+    },
+    "errorCode": null,
+    "errorMsg": null
+}

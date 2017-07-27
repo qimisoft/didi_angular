@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@mixin transition-property($p...) {
+    -webkit-transition-property: $p;
+    transition-property: $p;
+}
+
+@mixin transition($p...) {
+    -webkit-transition: $p;
+    transition: $p;
+}
+
+@mixin transform($p...) {
+    -webkit-transform: $p;
+    transform: $p;
+}
+
+@mixin animation($p...) {
+    -webkit-animation: $p;
+    animation: $p;
+}
+
+@mixin clear-ios-input-style() {
+    -webkit-appearance: none;
+}
+
+@function px2rem($px) {
+    $rem: 100px;
+    @return ($px/$rem) + rem;
+}
+
+@mixin sprite($viw, $vih, $riw, $rih, $rix, $riy, $rpw: 720px, $rph: 709px) {
+    width: $viw;
+    height: $vih;
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-size: (($viw * $rpw)/ $riw) (($vih * $rph)/ $rih);
+    background-position: -(($viw * $rix) / $riw) (-(($vih * $riy)/$rih));
+}

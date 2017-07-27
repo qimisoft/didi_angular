@@ -1,0 +1,147 @@
+.city-picker-bg {
+    background: transparent;
+}
+
+.city-picker-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: 0.1s opacity linear;
+    transition: 0.1s opacity linear;
+}
+
+.city-bgclose {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+}
+
+.city-picker {
+    z-index: 3;
+    position: absolute;
+    background: #eee;
+    width: 100%;
+    height: 296px;
+    bottom: 0;
+}
+
+.city-picker {
+    .city-picker-header {
+        position: absolute;
+        height: 44px;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid $color-e4;
+    }
+}
+
+.city-picker {
+    .city-picker-header {
+        .button {
+            font-size: px2rem(32px);
+            color: #000;
+        }
+        .title {
+            font-weight: normal;
+            font-size: px2rem(32px);
+        }
+    }
+    .ionic-scroll {
+        height: 252px;
+        ul {
+            padding: 103px 0;
+        }
+        li {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 44px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 10px;
+            overflow: hidden;
+            line-height: 50px;
+            color: #000;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -webkit-transition: 300ms;
+            -o-transition: 300ms;
+            transition: 300ms;
+        }
+    }
+    .city-picker-inner {
+        height: 252px;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        padding: 0;
+        font-size: px2rem(28px) !important;
+        text-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        /*-webkit-mask-box-image: -webkit-linear-gradient(bottom, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);
+      -webkit-mask-box-image: linear-gradient(to top, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);*/
+    }
+    .picker-center-highlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-top: 0px;
+        pointer-events: none;
+        &:before {
+            height: 100%;
+            margin: 0 auto;
+            z-index: 3;
+            background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), -webkit-linear-gradient(bottom, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
+            background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
+            background-position: top, bottom;
+            background-size: 100% 105px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: '';
+            width: 100%;
+        }
+        &:after {
+            content: '';
+            width: 100%;
+            height: 44px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -22px;
+            z-index: 3;
+            background-image: -webkit-linear-gradient(top, #d0d0d0, #d0d0d0, transparent, transparent), -webkit-linear-gradient(bottom, #d0d0d0, #d0d0d0, transparent, transparent);
+            background-image: linear-gradient(180deg, #d0d0d0, #d0d0d0, transparent, transparent), linear-gradient(0deg, #d0d0d0, #d0d0d0, transparent, transparent);
+            background-position: top, bottom;
+            background-size: 100% 1px;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.city-picker .row,
+.city-picker .col {
+    padding: 0;
+}
+
+.city-picker .col-40 {
+    width: 40%;
+}

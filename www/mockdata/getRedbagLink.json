@@ -1,0 +1,20 @@
+{
+    "errorCode": "000000",
+    "errorMsg": "成功",
+    "result": {
+        "activityPrizePercent": null,
+        "activityType": "1",
+        "content": null,
+        "isPrize": null,
+        "linkDetailId": null,
+        "loginNo": null,
+        "prizePercent": null,
+        "redbagLinkInfo": "01310108044718000@@20170510094017451202@@01@@http://116.228.151.161:1080/subapps/getcoupon/index.html#/?orderNo=20170714…en=ac819a64bb61ab4807abdc6e26ce13d0@@1501411930000@@1100@@dazongguan@@test",
+        "redirectToUrl": null,
+        "remainTimes": null,
+        "remark": null,
+        "title": null,
+        "token": null
+    },
+    "success": true
+}

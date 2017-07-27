@@ -1,0 +1,113 @@
+@charset "UTF-8";
+.popup-container {
+    .popup {
+        background-color: $color-white;
+        width: px2rem(560px);
+        border-radius: px2rem(6px);
+        overflow: hidden;
+    }
+    .popup-buttons {
+        border-top: $border-default;
+        padding: 0;
+        min-height: px2rem(82px);
+    }
+    .button {
+        font-size: px2rem(30px);
+        border: 0;
+        background-color: $color-white;
+        border-radius: 0;
+        margin-right: 0px;
+        padding-right: 5px;
+        &+.button {
+            border-left: $border-default;
+        }
+    }
+}
+
+.popup-head {
+    border-bottom: 0;
+    position: relative;
+    .popup-title {
+        color: $color-80;
+        font-size: px2rem(32px);
+        font-weight: normal;
+    }
+}
+
+.popup-body {
+    padding-bottom: px2rem(58px);
+    text-align: center;
+    font-size: px2rem($font-32);
+    color: $color-46;
+    .close-btn {
+        position: absolute;
+        top: px2rem(20px);
+        right: px2rem(20px);
+        @include sprite(20px, 20px, 29px, 29px, 213px, 12px);
+    }
+    .wait-img {
+        display: block;
+        margin: 0 auto px2rem(30px);
+        @include sprite(42px, 42px, 88px, 88px, 191px, 230px);
+    }
+    .point-img {
+        display: block;
+        margin: 0 auto px2rem(30px);
+        @include sprite(55px, 55px, 100px, 100px, 587px, 192px);
+    }
+    .alert-img {
+        display: block;
+        margin: 0 auto px2rem(30px);
+        @include sprite(50px, 50px, 142px, 142px, 286px, 192px);
+    }
+    .passenger-wrap {
+        padding: 0 px2rem(90px);
+        .holder {
+            border-bottom: 1px solid $color-e9;
+            margin-top: px2rem(20px);
+            position: relative;
+            padding-right: 30px;
+            input {
+                padding-left: 30px;
+                text-align: center;
+                font-size: px2rem(28px);
+                line-height: px2rem(60px);
+                height: px2rem(60px);
+            }
+            .clear-btn {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                @include transform(translateY(-50%));
+                @include sprite(24px, 24px, 40px, 40px, 88px, 396px);
+            }
+        }
+    }
+    .gift-confirm {
+        .close {
+            position: absolute;
+            top: 0;
+            right: px2rem(20px);
+            @include sprite(22px, 50px, 44px, 100px, 10px, 601px);
+        }
+        .inners {
+            height: px2rem(800px);
+            position: relative;
+            border-radius:px2rem(20px);
+            background: url(../img/gift.png) center center no-repeat;
+            background-size: cover;
+            .button {
+                height: px2rem(68px);
+                line-height: px2rem(68px);
+                width: 80%;
+                color: $color-white;
+                background: #ff8803;
+                border-radius: px2rem(68px);
+                position: absolute;
+                left: 10%;
+                font-size: px2rem(34px);
+                bottom: px2rem(50px);
+            }
+        }
+    }
+}

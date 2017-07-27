@@ -1,0 +1,258 @@
+@charset "UTF-8";
+.index__detail {
+    padding: px2rem(20px);
+    bottom: px2rem(150px);
+    .main_box {
+        background-color: $color-white;
+        border-radius: px2rem(6px);
+        .cost-min {
+            padding: px2rem(15px) 0;
+            font-size: px2rem(30px);
+            color: $color-46;
+            text-align: center;
+            span {
+                color: $color-orange;
+                font-size: px2rem(34px);
+                margin-left: px2rem(10px);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .car-type-list {
+            ul {
+                width: 100%;
+                overflow: hidden;
+                padding-bottom: px2rem(20px);
+            }
+            .inner {
+                position: relative;
+                float: left;
+                width: 25%;
+                text-align: center;
+                font-size: px2rem(28px);
+                padding: px2rem(15px) 0;
+                border-bottom: 2px solid $color-c7;
+                color: $color-46;
+                picture {
+                    display: block;
+                    margin: 0 auto px2rem(10px);
+                    &.img600 {
+                        @include sprite(70px, 40px, 103px, 54px, 279px, 69px);
+                    }
+                    &.img100 {
+                        @include sprite(70px, 40px, 103px, 54px, 390px, 69px);
+                    }
+                    &.img400 {
+                        @include sprite(70px, 40px, 103px, 54px, 501px, 69px);
+                    }
+                    &.img200 {
+                        @include sprite(70px, 40px, 103px, 54px, 610px, 69px);
+                    }
+                }
+                &.pop {
+                    color: $color-orange;
+                    border-color: $color-orange;
+                    picture {
+                        &.img600 {
+                            @include sprite(70px, 40px, 103px, 54px, 279px, 130px);
+                        }
+                        &.img100 {
+                            @include sprite(70px, 40px, 103px, 54px, 390px, 130px);
+                        }
+                        &.img400 {
+                            @include sprite(70px, 40px, 103px, 54px, 501px, 130px);
+                        }
+                        &.img200 {
+                            @include sprite(70px, 40px, 103px, 54px, 610px, 130px);
+                        }
+                    }
+                    &:before {
+                        position: absolute;
+                        bottom: -4px;
+                        left: 50%;
+                        content: '';
+                        width: px2rem(12px);
+                        height: px2rem(12px);
+                        border-radius: 50%;
+                        background-color: $color-orange;
+                    }
+                }
+            }
+        }
+        .car-form {
+            .pre-price {
+                height: px2rem(128px);
+                line-height: normal;
+                font-size: px2rem(26px);
+                text-align: center;
+                padding: 0;
+                .top {
+                    color: $color-46;
+                    margin-bottom: px2rem(10px);
+                    em {
+                        margin-left: px2rem(20px);
+                        color: $color-orange;
+                    }
+                    span {
+                        color: $color-orange;
+                        font-size: px2rem(48px);
+                    }
+                }
+                .tip {
+                    color: $color-a4;
+                    &:after {
+                        content: '';
+                        display: inline-block;
+                        @include sprite(14px, 14px, 30px, 30px, 250px, 13px);
+                        vertical-align: middle;
+                    }
+                }
+            }
+            .item {
+                line-height: px2rem(96px);
+                padding: 0 px2rem(30px);
+                font-size: px2rem(30px);
+            }
+            .car-toggle {
+                .toggle {
+                    top: 50%;
+                    margin-top: px2rem(4px);
+                    @include transform(translateY(-50%));
+                    input:checked+.track {
+                        border-color: $color-orange;
+                        background-color: $color-orange;
+                    }
+                }
+            }
+            .toggle-small input:checked+.track .handle {
+                background: $color-white;
+            }
+            li {
+                position: relative;
+                height: px2rem(100px);
+                padding: px2rem(25px) px2rem(30px);
+                color: $color-46;
+                font-size: px2rem(30px);
+                overflow: hidden;
+                .inner-label {
+                    width: 30%;
+                    display: inline-block;
+                    float: left;
+                    height: px2rem(50px);
+                    line-height: px2rem(50px);
+                }
+                .inner-con {
+                    float: left;
+                    width: 70%;
+                    display: inline-block;
+                    height: px2rem(50px);
+                    font-size: px2rem(30px);
+                    line-height: px2rem(50px);
+                }
+                .tel-inject {
+                    position: absolute;
+                    top: 50%;
+                    right: px2rem(30px);
+                    @include transform(translateY(-50%));
+                    display: inline-block;
+                    @include sprite(24px, 26px, 52px, 55px, 114px, 245px);
+                }
+            }
+            .pay-method {
+                height: px2rem(120px);
+                font-size: px2rem(30px);
+                line-height: px2rem(50px);
+                padding-top: px2rem(10px);
+                p {
+                    margin: 0;
+                }
+                .tip {
+                    margin-left: px2rem(20px);
+                    color: $color-orange;
+                }
+                .detail {
+                    color: $color-c7;
+                }
+            }
+        }
+    }
+    .notice-box {
+        padding: px2rem(20px) px2rem(30px);
+        .tips {
+            color: $color-a4;
+            font-size: px2rem(26px);
+            margin-bottom: px2rem(20px);
+        }
+        .agreement {
+            font-size: px2rem(30px);
+            color: $color-46;
+            span {
+                color: $color-orange;
+            }
+            label {
+                font-size: px2rem(30px);
+            }
+            input[type="checkbox"] {
+                margin-right: px2rem(20px);
+                font-size: px2rem(30px);
+                vertical-align: text-bottom;
+                -webkit-appearance: none;
+                background-color: transparent;
+                border-color: transparent;
+                @include sprite(20px, 20px, 40px, 40px, 586px, 301px);
+                &:checked {
+                    @include sprite(20px, 20px, 40px, 40px, 637px, 301px);
+                }
+            }
+        }
+    }
+}
+
+// .index__book {
+//     background: $color-bg;
+//     padding: 0 px2rem(30px) px2rem(30px) px2rem(30px);
+//     height: px2rem(150px);
+//     .inners {
+//         background-color: $color-white;
+//         border-radius: px2rem(6px);
+//         height: px2rem(120px);
+//         width: 100%;
+//         overflow: hidden;
+//         .con {
+//             float: left;
+//             width: 60%;
+//             padding-left: px2rem(30px);
+//             .top {
+//                 margin: px2rem(6px) 0 0 0;
+//                 font-size: px2rem(26px);
+//                 color: $color-46;
+//                 em {
+//                     margin-left: px2rem(30px);
+//                     color: $color-orange;
+//                 }
+//                 span {
+//                     font-size: px2rem(48px);
+//                     color: $color-orange;
+//                 }
+//             }
+//             .bottom {
+//                 color: $color-orange;
+//                 font-size: px2rem(26px);
+//             }
+//         }
+//         .btns {
+//             float: left;
+//             width: 20%;
+//             line-height: px2rem(120px);
+//             color: $color-white;
+//             font-size: px2rem(36px);
+//             text-align: center;
+//             &.btn-detail {
+//                 background-color: $color-dark;
+//             }
+//             &.btn-go {
+//                 background-color: $color-orange;
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,122 @@
+{
+  "success": true,
+  "result": {
+    "orders": [
+      {
+        "orderNo": "20170510094017451202",
+        "orderState": "10",
+        "type": "0",
+        "productType": "301",
+        "passengerPhone": "17612102275",
+        "driverName": "文师傅",
+        "driverPhone": "18521594929",
+        "driverCarType": "荣威550",
+        "driverCard": "沪BZ0316",
+        "driverAvatar": "http://static.xiaojukeji.com/gulfstream/upload/rooster20160216/5633503845416999f062db051871fab64d2273971c1d49d/cfImg.png",
+        "driverOrderCount": "4461",
+        "driverLevel": "4.89",
+        "inTimeLevel": null,
+        "carAppearanceLevel": null,
+        "driverServiceLevel": null,
+        "driverComment": null,
+        "cityCode": "4",
+        "startName": "中国电信号百商旅电子商务公司",
+        "flng": "121.48474",
+        "flat": "31.24542",
+        "endName": "人民公园",
+        "tlng": "121.47322",
+        "tlat": "31.23223",
+        "departureTime": "2017-05-1009: 40: 17",
+        "orderTime": "2017-05-1009: 40: 16",
+        "striveTime": "2017-05-1009: 40: 26",
+        "beginChargeTime": "2017-05-1009: 44: 21",
+        "finishTime": "2017-05-1009: 55: 16",
+        "normalDistance": "2.8",
+        "normalTime": "10.0",
+        "rideType": "600",
+        "totalPrice": "1300",
+        "payAmt": "0",
+        "balance": "0",
+        "estimateAmt": "1373",
+        "voucherAmt": 10,
+        "priceDetails": [
+          {
+            "name": "快车最低消费补足",
+            "amount": "56",
+            "feeType": "limit_pay"
+          },
+          {
+            "name": "正常行驶距离费",
+            "amount": "644",
+            "feeType": "normal_fee"
+          },
+          {
+            "name": "快车时长费",
+            "amount": "600",
+            "feeType": "normal_time_fee"
+          },
+          {
+            "name": "企业实付金额",
+            "amount": "0",
+            "feeType": "company_real_pay"
+          },
+          {
+            "name": "个人实付金额",
+            "amount": "0",
+            "feeType": "personal_real_pay"
+          },
+          {
+            "name": "个人应付金额",
+            "amount": "0",
+            "feeType": "personal_pay"
+          },
+          {
+            "name": "企业应付金额",
+            "amount": "0",
+            "feeType": "company_pay"
+          }
+        ]
+      },
+      {
+        "orderNo": "20170510093908405020",
+        "orderState": "05",
+        "type": "0",
+        "productType": "301",
+        "passengerPhone": "13524209112",
+        "driverName": null,
+        "driverPhone": null,
+        "driverCarType": null,
+        "driverCard": null,
+        "driverAvatar": null,
+        "driverOrderCount": 0,
+        "driverLevel": "0.0",
+        "inTimeLevel": null,
+        "carAppearanceLevel": null,
+        "driverServiceLevel": null,
+        "driverComment": null,
+        "cityCode": "4",
+        "startName": "中国电信号百商旅电子商务公司",
+        "flng": "121.48474",
+        "flat": "31.24542",
+        "endName": "上海人民广场",
+        "tlng": "121.4762",
+        "tlat": "31.22967",
+        "departureTime": "2017-05-1009: 39: 08",
+        "orderTime": "2017-05-1009: 39: 08",
+        "striveTime": null,
+        "beginChargeTime": null,
+        "finishTime": null,
+        "normalDistance": null,
+        "normalTime": null,
+        "rideType": "600",
+        "totalPrice": "0",
+        "payAmt": "0",
+        "balance": "0",
+        "estimateAmt": "1300",
+        "priceDetails": null
+      }
+    ]
+  },
+  "errorCode": "000000",
+  "errorMsg": "成功"
+}

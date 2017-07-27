@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "result": {
+        "dist": 21133,
+        "duration": 2665,
+        "slowTime": 315
+    },
+    "errorCode": null,
+    "errorMsg": null
+}

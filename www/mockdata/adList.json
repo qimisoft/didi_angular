@@ -1,0 +1,36 @@
+{
+    "errorCode": null,
+    "errorMsg": null,
+    "result": {
+        "adList": [
+            {
+                "action": "03",
+                "adId": "51014620",
+                "adImgURL": "http://bestpay.ctdns.net/u1/mepf/mems/upload/vm/app/icon/1495158528921.bmp",
+                "adLocation": null,
+                "adText": "皮皮虾打车去",
+                "adType": "17",
+                "appId": "null",
+                "createDate": "2017-05-19 09:48:49",
+                "msgId": null,
+                "title": "皮皮虾打车去",
+                "url": "http://bestpay.ctdns.net/u1/mepf/mems/html/h5-page/didibanner/ppTakeTaxi.html"
+            },
+            {
+                "action": "03",
+                "adId": "51014621",
+                "adImgURL": "http://bestpay.ctdns.net/u1/mepf/mems/upload/vm/app/icon/1495158647308.bmp",
+                "adLocation": null,
+                "adText": "夏季打车",
+                "adType": "17",
+                "appId": "null",
+                "createDate": "2017-05-19 09:50:48",
+                "msgId": null,
+                "title": "夏季打车",
+                "url": "http://bestpay.ctdns.net/u1/mepf/mems/html/h5-page/didibanner/summerBus.html"
+            }
+        ],
+        "version": "20170519134341117"
+    },
+    "success": true
+}

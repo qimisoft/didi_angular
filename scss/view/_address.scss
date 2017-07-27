@@ -1,0 +1,99 @@
+@charset "UTF-8";
+.pager__address {
+    .inners {
+        padding-top: px2rem(20px);
+        .add-list {
+            .item {
+                overflow: hidden;
+                height: px2rem(120px);
+                position: relative;
+                &.show-delete {
+                    .item-inners {
+                        padding-left: px2rem(140px);
+                        em {
+                            left: px2rem(90px);
+                        }
+                        pic {
+                            display: block;
+                        }
+                    }
+                }
+                &.trans-left {
+                    .item-inners {
+                        @include transform(translateX(-60px));
+                    }
+                }
+                .item-inners {
+                    background-color: $color-white;
+                    padding: px2rem(20px) px2rem(60px) px2rem(20px) px2rem(90px);
+                    position: relative;
+                    height: 100%;
+                    transition: 250ms;
+                    pic {
+                        display: none;
+                        position: absolute;
+                        top: 0;
+                        width: px2rem(90px);
+                        height: 100%;
+                        left: 0;
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: px2rem(30px);
+                            top: 50%;
+                            @include transform(translateY(-50%));
+                            @include sprite(26px, 26px, 50px, 50px, 411px, 11px);
+                        }
+                    }
+                    p {
+                        font-size: px2rem(26px);
+                        color: $color-a4;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                    h2 {
+                        font-size: px2rem(30px);
+                        color: $color-46;
+                    }
+                    em {
+                        position: absolute;
+                        top: 50%;
+                        left: px2rem(30px);
+                        display: block;
+                        @include transform(translateY(-50%));
+                        @include sprite(22px, 22px, 50px, 50px, 505px, 395px);
+                        &.company {
+                            @include sprite(22px, 22px, 50px, 50px, 555px, 395px);
+                        }
+                    }
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        right: px2rem(30px);
+                        display: block;
+                        @include transform(translateY(-50%));
+                        @include sprite(14px, 14px, 30px, 30px, 250px, 13px);
+                    }
+                }
+                .delete-btn {
+                    position: absolute;
+                    top: 0;
+                    right: -60px;
+                    background-color: $color-orange;
+                    color: $color-white;
+                    font-size: px2rem(34px);
+                    height: px2rem(120px);
+                    line-height: px2rem(120px);
+                    width: 60px;
+                    text-align: center;
+                    @include transition(250ms);
+                    &.show {
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

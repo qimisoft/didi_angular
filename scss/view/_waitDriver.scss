@@ -1,0 +1,69 @@
+@charset "UTF-8";
+.boundForDestination{
+    .carInfo{
+      box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+      position: fixed;
+      top:0;
+      width: 100%;
+      z-index:10;
+       height:px2rem(180px);
+       background-color: #fff;
+      .iconbody{
+        width:25%;
+        height: 100%;
+        text-align: center;
+        float:left;
+        .icon{
+          position: relative;
+          top:50%;
+          margin-top: -24px;
+          display: inline-block;
+          @include sprite(0.93rem,0.93rem, 68px, 68px, 18px, 237px);
+        }
+      };
+      .km_min{
+        float: left;
+        height: 100%;
+        .title{
+          margin-top: px2rem(30px);
+          font-size: px2rem(44px);
+          color:#ff8803;
+        }
+        .content{
+          margin-top: px2rem(10px);
+          .c1{
+            font-size: px2rem(30px);
+            color:#242424;
+          }
+          .c2{
+            font-size: px2rem(36px);
+            color:#ff8803;
+          }
+        }
+
+      }
+
+      #panel {
+        position: fixed;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 10px;
+        right: 10px;
+        width: 280px;
+      }
+    }
+    #_mapContainer{
+        width: 100%;
+        height: 100%;
+
+    }
+
+}
+/*去除地图logo*/
+.amap-logo {
+  display: none;
+}
+.amap-copyright {
+  display: none  !important;;
+}

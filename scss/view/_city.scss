@@ -1,0 +1,90 @@
+@charset "UTF-8";
+.city__citychoose {
+    .city__bg {
+        background-color: $color-bg;
+    }
+    .city__alphabet {
+        position: fixed;
+        top: px2rem(150px);
+        right: px2rem(30px);
+        width: px2rem(60px);
+        z-index: 100;
+        font-size: px2rem(24px);
+    }
+    .city__letter {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding-top: px2rem(4px);
+        padding-bottom: 1px;
+        line-height: px2rem(30px);
+    }
+    .city__content {
+        padding: px2rem(20px);
+        height: 100%;
+        overflow: hidden;
+        .inners {
+            height: 100%;
+            border-radius: px2rem(6px);
+            box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+        }
+        .cur-city {
+            height: px2rem(100px);
+            line-height: px2rem(100px);
+            background-color: $color-white;
+            padding: 0 px2rem(40px);
+            font-size: px2rem(30px);
+            color: $color-24;
+        }
+        .city__item--divider {
+            height: px2rem(80px);
+            line-height: px2rem(80px);
+            background-color: #f1f3f5;
+            padding: 0 px2rem(40px);
+            font-size: px2rem(30px);
+            color: $color-a4;
+        }
+        .divider {
+            &+.city__item--wrapper {
+                .city__item {
+                    border-top: 0
+                }
+            }
+        }
+        .city__item--wrapper {
+            background-color: $color-white;
+            border-bottom: 1px solid $color-e4;
+            line-height: px2rem(100px);
+            padding: 0 px2rem(40px);
+            color: $color-24;
+            font-size: px2rem(30px);
+            &:first-child {
+                .city__item {
+                    border-top: 0
+                }
+            }
+            &.divider {
+                padding: 0;
+            }
+        }
+    }
+    .hot-img {
+        display: inline-block;
+        vertical-align: middle;
+        @include sprite(18px, 18px, 28px, 28px, 53px, 12px);
+    }
+}
+
+.city__item--noresult {
+    text-align: center;
+    color: $color-c7;
+    padding-top: px2rem(130px);
+    border-radius: px2rem(6px);
+    background-color: $color-white;
+    height: 100%;
+    .empty-img {
+        display: block;
+        margin: 0 auto px2rem(30px);
+        @include sprite(65px, 65px, 136px, 136px, 9px, 455px);
+    }
+}

@@ -1,0 +1,74 @@
+<ion-view view-title="行程详情" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" scroll="false">
+        <div id="amap-order"></div>
+        <div id="panel" style="display: none;"></div>
+        <div class="order-detail" ng-class="{'close-panel':vm.handleBtnShow}">
+            <div class="handle-btn" ng-if="vm.hasHandleBtn" ng-click="vm.showDetail()"></div>
+            <div class="sl_cells top-box">
+                <div class="sl_cell" ng-click="openModel(order.amtState)">
+                    <div class="status-box">
+                        <i class="sl_icon sl_icon_middle sl_icon_{{order.stateIcon}}" ng-class="{'ing':order.orderState == '02'||order.orderState == '03'}">
+                        </i><span class="sl_left_label">
+                        {{order.desc}}<span class="descmore" ng-if="order.orderState == '08'">（请重新支付）
+                        </span><span class="descmore" ng-if="order.orderState == '09'">（余额不足）</span>
+                        </span>
+                        <div class="sl_right_label ellipsis" ng-if="order.amtState != '00'">
+                            <span ng-if="order.amtState == '10'">预估金额</span>
+                            <span ng-if="order.amtState == '11'">订单金额</span>
+                            <span class="cost">
+                                <span class="unit">￥</span>
+                            <span class="amount" ng-if="order.amtState == '10'">{{order.estimateAmt | fen2yuan}}</span>
+                            <span class="amount" ng-if="order.amtState == '11'&&order.voucherAmt">{{(order.totalPrice-order.voucherAmt) | fen2yuan}}</span>
+                            <span class="amount" ng-if="order.amtState == '11'&&!order.voucherAmt">{{order.totalPrice | fen2yuan}}</span>
+                            </span>
+                            <i class="right_arrow"></i>
+                        </div>
+                    </div>
+                    <p class="hint" ng-if="order.orderState != '04' && order.orderState != '05'">{{order.hint}}</p>
+                    <p class="hint" ng-if="order.orderState == '04'">本次用车正在取消,（扣除<span class="f_orange">{{order.totalPrice | fen2yuan}}</span>元违约金）</p>
+                    <p class="hint" ng-if="order.orderState == '05'">本次用车已取消,（收取<span class="f_orange">{{order.totalPrice | fen2yuan}}</span>元违约金）</p>
+                    <p class="hint duration" ng-if="carDis.name">距{{carDis.name}}还有<span>{{carDis.dist|m2km}}公里 约{{carDis.duration/60|minutes2Hours}}</span></p>
+                </div>
+            </div>
+            <div class="detail-box has-box-shadow border-top">
+                <div class="sl_cells">
+                    <div class="sl_cell driver_info" ng-show="order.driverName">
+                        <picture ng-if="order.driverAvatar&&order.driverAvatar!=''" style="background-image:url('{{order.driverAvatar|http2https}}')"></picture>
+                        <picture ng-if="!(order.driverAvatar&&order.driverAvatar!='')"></picture>
+                        <h2>{{order.driverName || '--'}}</h2>
+                        <p class="middle"><span ng-bind="order.driverCard || '--'"></span><span class="detail">{{order.driverCarType || '--'}}</span></p>
+                        <em ng-click="goto('call')"></em>
+                    </div>
+                    <div class="sl_cell" ng-if="optionsShow.remark||optionsShow.cancel||optionsShow.again">
+                        <div class="options">
+                            <div class="option remark" ng-if="optionsShow.remark" ng-click="goto('remark')">
+                                <!-- <span class="sl_icon sl_icon_big sl_icon_pencil"></span> -->
+                                <span class="label" ng-if="!order.isRemark">点评司机</span>
+                                <span class="label" ng-if="order.isRemark">查看评价</span>
+                            </div>
+                            <div class="option cancel" ng-if="optionsShow.cancel" ng-click="goto('cancel')">
+                                <!-- <span class="sl_icon sl_icon_big sl_icon_cancel"></span> -->
+                                <span class="label">取消订单</span>
+                            </div>
+                            <div class="option again" ng-if="optionsShow.again" ng-click="goto('again')">
+                                <!-- <span class="sl_icon sl_icon_big sl_icon_again"></span> -->
+                                <span class="label">重新预订</span>
+                            </div>
+                            <div class="option again" ng-if="optionsShow.gift" ng-click="goto('gift')">
+                                <!-- <span class="sl_icon sl_icon_big sl_icon_gift"></span> -->
+                                <span class="label">领取红包</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sl_cells border-top" ng-if="order.orderState == '08' || order.orderState == '09'">
+                    <div class="sl_cell options">
+                        <button class="button button-positive" ng-click="payOrder()">
+                            {{order.btnTxt}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

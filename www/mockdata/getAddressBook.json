@@ -1,0 +1,17 @@
+{
+    "errorCode": "000000",
+    "errorMsg": "成功",
+    "result": [
+        {
+            "address": "徐汇区沪闵路9001号",
+            "addressType": "1",
+            "cityCode": "4",
+            "cityName": "上海市",
+            "displayName": "上海南站",
+            "lat": "31.15317",
+            "lng": "121.42953",
+            "userId": "13564504574"
+        }
+    ],
+    "success": true
+}

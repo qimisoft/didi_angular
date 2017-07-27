@@ -1,0 +1,153 @@
+@charset "UTF-8";
+#amap-start {
+    height: 100%;
+    .amap-info-content {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        color: $color-green;
+    }
+    .amap-info-sharp,
+    .amap-info-close {
+        display: none;
+    }
+    .start_marker {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin: -47px 0 0 -24px;
+        z-index: 99;
+        @include sprite(30px, 41px, 52px, 70px, 10px, 321px);
+    }
+    .marker_zoom {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, .3) inset;
+            @include animation(zoomAnimation 2s linear infinite);
+            background: $color-green;
+        }
+        em {
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            background: $color-green;
+        }
+    }
+    .address-holder {
+        background: $color-white;
+        width: 100%;
+        left: 0;
+        position: absolute;
+        bottom: 0;
+        padding: px2rem(20px) px2rem(100px) px2rem(20px) px2rem(90px);
+        z-index: 99;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: px2rem(30px);
+            top: 50%;
+            @include transform(translateY(-50%));
+            @include sprite(18px, 24px, 52px, 70px, 10px, 321px);
+        }
+        .detail {
+            color: $color-c7;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            padding: px2rem(30px);
+            color: $color-orange;
+            @include transform(translateY(-50%));
+        }
+        .recommend {
+            display: inline-block;
+            color: $color-white;
+            background: $color-green;
+            font-size: px2rem(26px);
+            padding: px2rem(2px) px2rem(8px);
+            margin-left: px2rem(10px);
+        }
+    }
+}
+
+#amap-order {
+    height: 100%;
+}
+
+@keyframes zoomAnimation {
+    0% {
+        left: 7px;
+        top: 7px;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    5% {
+        left: 7px;
+        top: 7px;
+        opacity: 1;
+        width: 0;
+        height: 0;
+    }
+    95% {
+        left: -14px;
+        top: -14px;
+        opacity: 0;
+        width: 42px;
+        height: 42px;
+    }
+    100% {
+        left: -14px;
+        top: -14px;
+        opacity: 0;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@-webkit-keyframes zoomAnimation {
+    0% {
+        left: 7px;
+        top: 7px;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    5% {
+        left: 7px;
+        top: 7px;
+        opacity: 1;
+        width: 0;
+        height: 0;
+    }
+    95% {
+        left: -14px;
+        top: -14px;
+        opacity: 0;
+        width: 42px;
+        height: 42px;
+    }
+    100% {
+        left: -14px;
+        top: -14px;
+        opacity: 0;
+        width: 42px;
+        height: 42px;
+    }
+}

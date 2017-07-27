@@ -1,0 +1,90 @@
+<ion-view view-title="点评" hide-tab-bar="false" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scoll="false" ><!--class="{'has-footer':!vm.isAppraise}"-->
+       <div class="appraise-mainOrder">
+           <div class="appraise-orderDiv">
+               <span class="">订单编号</span>
+               <span class="appraise-orderNo">{{vm.orderNo}}</span>
+           </div>
+           <div class="appraise-orderDiv">
+               <span class="">订单总价</span>
+               <span class="appraise-orderNo">￥{{vm.payAmt | fen2yuan}}</span>
+           </div>
+       </div>
+        <div ng-if="!vm.isAppraise">
+            <div class="appraise-mainAppraise">
+                <div class="appraise-apprasiseDiv">
+                    <span class="appraise-appTitle">准时接送</span>
+                    <span class="appraise-appStars">
+                        <i class="appraise-appStar" ng-init="" ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starTimeLevel.id}" ng-click="vm.clickTimeStar(item)"></i>
+                    </span>
+                    <span class="appraise-appStarVal" ng-init="">{{vm.starTimeLevel.label}}</span>
+                </div>
+
+
+                <div class="appraise-apprasiseDiv">
+                    <span class="appraise-appTitle">车况情况</span>
+                <span class="appraise-appStars">
+                    <i class="appraise-appStar" ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starCarLevel.id}" ng-click="vm.clickCarStar(item)"></i>
+                </span>
+                    <span class="appraise-appStarVal" ng-init="">{{vm.starCarLevel.label}}</span>
+                </div>
+                <div class="appraise-apprasiseDiv">
+                    <span class="appraise-appTitle">司机服务</span>
+                <span class="appraise-appStars">
+                    <i class="appraise-appStar" ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starDriverLevel.id}" ng-click="vm.clickDriverStar(item)"></i>
+                </span>
+                    <span class="appraise-appStarVal" ng-init="">{{vm.starDriverLevel.label}}</span>
+                </div>
+                <div class="appraise-apTextDiv">
+                    <span class="apTexttitle">点评内容</span>
+                    <textarea class="apTextValue" ng-model="vm.appraiseText" maxlength="40" placeholder="分享您对接送是否准时，车况车貌及司机服务等方面的体验，帮助我们不断进步。"></textarea>
+                </div>
+
+            </div>
+            <!--{{vm.appraiseText.length}}-->
+            <div class="appraise-apTextNum">
+                限制个数40字
+            </div>
+
+        </div>
+        <div ng-if="vm.isAppraise">
+            <div class="appraise-mainAppraise">
+                <div class="appraise-apprasiseDiv" ng-init="vm.starTimeLevel">
+                    <span class="appraise-appTitle">准时接送</span>
+                    <span class="appraise-appStars">
+                        <i class="appraise-appStar"  ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starTimeLevel.id}"></i>
+                    </span>
+                    <span class="appraise-appStarVal">{{vm.starTimeLevel.label}}</span>
+                </div>
+
+
+                <div class="appraise-apprasiseDiv" ng-init="vm.starCarLevel">
+                    <span class="appraise-appTitle">车况情况</span>
+                <span class="appraise-appStars">
+                    <i class="appraise-appStar" ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starCarLevel.id}"></i>
+                </span>
+                    <span class="appraise-appStarVal">{{vm.starCarLevel.label}}</span>
+                </div>
+                <div class="appraise-apprasiseDiv" ng-init="vm.starDriverLevel">
+                    <span class="appraise-appTitle">司机服务</span>
+                <span class="appraise-appStars">
+                    <i class="appraise-appStar" ng-repeat="item in vm.starLevelList" ng-class="{'appraise-appStarSeled':item.id <= vm.starDriverLevel.id}"></i>
+                </span>
+                    <span class="appraise-appStarVal">{{vm.starDriverLevel.label}}</span>
+                </div>
+                <div class="appraise-apTextDiv">
+                    <span class="apTexttitle">点评内容</span>
+                    <div class="apTextValue" ng-bind="vm.driverComment">分享您对接送是否准时，车况车貌及司机服务等方面的体验，帮助我们不断进步。</div>
+                </div>
+
+            </div>
+        </div>
+
+    </ion-content>
+    <div class="appraise-btnDiv">
+        <div class="appraise-btn" ng-if="!vm.isAppraise" ng-click="vm.appraiseSubmit()">提交</div>
+    </div>
+    <!--<ion-footer-bar  ng-if="!vm.isAppraise" class="appraise-footer">-->
+        <!--<div class="btn" ng-click="vm.appraiseSubmit()">提交</div>-->
+    <!--</ion-footer-bar>-->
+</ion-view>

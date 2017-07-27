@@ -1,0 +1,77 @@
+@charset "UTF-8";
+.search-place {
+    .search-list {
+        padding: px2rem(20px);
+        height: 100%;
+        .inners {
+            box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+            border-radius: px2rem(6px);
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 100%;
+        }
+        li {
+            position: relative;
+            border-bottom: 1px solid $color-e4;
+            background-color: $color-white;
+            padding: px2rem(20px) px2rem(35px) px2rem(20px) px2rem(90px);
+            font-size: px2rem(28px);
+            p {
+                margin: 0;
+                &.lighter {
+                    color: $color-6f;
+                }
+            }
+            &.normal:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: px2rem(35px);
+                display: block;
+                @include transform(translateY(-50%));
+                @include sprite(18px, 18px, 30px, 30px, 12px, 12px);
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            &.two-col {
+                padding: 0;
+                overflow: hidden;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    display: block;
+                    width: 1px;
+                    height: 100%;
+                    background-color: $color-e9;
+                }
+                .inners {
+                    position: relative;
+                    overflow: hidden;
+                    p {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    &.company:before {
+                        @include sprite(22px, 22px, 50px, 50px, 555px, 395px);
+                    }
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: px2rem(30px);
+                        display: block;
+                        @include transform(translateY(-50%));
+                        @include sprite(22px, 22px, 50px, 50px, 505px, 395px);
+                    }
+                    float: left;
+                    width: 50%;
+                    padding: px2rem(20px) px2rem(20px) px2rem(20px) px2rem(90px);
+                }
+            }
+        }
+    }
+}

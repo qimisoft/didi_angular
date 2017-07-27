@@ -1,0 +1,48 @@
+<ion-view view-title="我的行程" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" ng-class="{'bg_white':!isShowMore&&isView}">
+        <div class="myOrders" ng-if="isShowMore&&isView">
+            <ion-list>
+                <ion-item class="order_lists" ng-repeat="lists in orderLists as result" ng-if="lists.data.length > 0&&lists.data[0].orderState != '00'">
+                    <div class="header" ng-bind="lists.class.desc"></div>
+                    <ion-list>
+                        <ion-item class="sl_cells" ng-click="goToDetail(list)" ng-if="list.orderState != '00'" ng-repeat="list in lists.data">
+                            <div class="sl_cell">
+                                <div class="status-box">
+                                    <span class="sl_left_label">
+                                        {{list.departureTime}}
+                                        <i class="type">{{list.productType |translate: 'productType'}}</i>
+                                    </span>
+                                    <span class="sl_right_label state_{{lists.class.id}}" ng-if="list.orderState == '02' && list.type == '0'">
+                                        服务中
+                                        <i class="right_arrow"></i>
+                                    </span>
+                                    <span class="sl_right_label state_{{lists.class.id}}" ng-if="list.orderState != '02' || list.type != '0'">
+                                        {{list.title}}
+                                        <i class="right_arrow"></i>
+                                    </span>
+                                </div>
+                                <div class="m_b_30 ellipsis">
+                                    <i class="sl_icon sl_icon_circle icon_circle_green">
+                                    </i><span class="sl_left_label f28">
+                                    {{list.startName}}
+                                    </span>
+                                </div>
+                                <div class="ellipsis">
+                                    <i class="sl_icon sl_icon_circle icon_circle_orange">
+                                    </i><span class="sl_left_label f28">
+                                    {{list.endName}}
+                                    </span>
+                                </div>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                </ion-item>
+            </ion-list>
+            <div class="noMore" ng-if="isShowMore">没有更多订单了</div>
+        </div>
+        <div class="no-order" ng-if="!isShowMore&&isView">
+            <picture class="no-order-img"></picture>
+            <p>暂无订单记录</p>
+        </div>
+    </ion-content>
+</ion-view>

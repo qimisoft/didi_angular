@@ -1,0 +1,93 @@
+<ion-view view-title="滴滴出行" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" scroll="false" class="pager__main">
+        <ion-side-menus>
+            <ion-side-menu-content drag-content="false" class="side-menu-content">
+                <ion-header-bar class="car-type-list">
+                    <div class="my" ng-click="vm.sideMenuShow()"></div>
+                    <ion-scroll direction="x" scrollbar-x="false" scrollbar-y="false" class="type-list"><span ng-repeat="item in vm.carTypesList" class="inner{{item.state}}" ng-class="{'pop':item.value==vm.selectedCarType.value}" ng-bind="item.label" ng-click="vm.chooseCarType(item)"></span></ion-scroll>
+                </ion-header-bar>
+                <div class="masker" ng-if="vm.isMasker" ng-click="vm.sideMenuHide()"></div>
+                <ion-scroll class="main__inners" direction="y" scrollbar-x="false" scrollbar-y="false">
+                    <div class="m_slides_wrapper" ng-class="{'active':vm.showPagerTwo}">
+                        <ion-slide-box ng-if="vm.adrResult" on-slide-changed="vm.slideHasChanged($index)" class="m_slides" does-continue="true" show-pager="true" auto-play="true">
+                            <ion-slide ng-repeat="item in vm.slides track by $index" ng-click="vm.openWeb(item.url,item.action,item.title)">
+                                <div class="box">
+                                    <img ng-src="{{item.adImgURL|http2https}}">
+                                </div>
+                            </ion-slide>
+                        </ion-slide-box>
+                        <div class="slider-pager-two" ng-if="vm.showPagerTwo">
+                            <span class="slider-pager-page" ng-class="{'active':vm.sliderPagerTwo==1}"><i class="icon ion-record"></i></span><span class="slider-pager-page" ng-class="{active:vm.sliderPagerTwo==0}"><i class="icon ion-record"></i></span>
+                        </div>
+                    </div>
+                    <div class="static-banner" ng-if="!vm.adrResult"></div>
+                    <div class="main__box">
+                        <div class="mbox-inner">
+                            <div class="box__points">
+                                <em class="switch-click" ng-click="vm.switch()"></em>
+                                <div class="inners start-point border-bottom">
+                                    <span ng-if="vm.isLBSing" class="holder">定位中...</span>
+                                    <span ng-if="!vm.startPoint&&!vm.isLBSing" class="holder" ng-click="vm.goToSearch('start')">您在哪上车</span>
+                                    <span ng-if="vm.startPoint" ng-bind="vm.startPoint.displayName" ng-click="vm.goToSearch('start')"></span>
+                                </div>
+                                <div class="inners">
+                                    <span ng-if="!vm.endPoint" class="holder" ng-click="vm.goToSearch('end')">您要去哪儿</span>
+                                    <span ng-if="vm.endPoint" ng-bind="vm.endPoint.displayName" ng-click="vm.goToSearch('end')"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__box">
+                        <div class="mbox-inner">
+                            <div class="bottom-box" ng-if="vm.showDetail">
+                                <div class="inners">
+                                    <time-picker options='vm.timePicker'></time-picker>
+                                </div>
+                                <div class="inners passenger" ng-click="vm.showPassenger()">
+                                    尾号{{vm.passengerPhone.substr(7,4)}}
+                                </div>
+                            </div>
+                            <div class="border-top bottom-box" ng-if="vm.showDetail">
+                                <span class="inner-label">优惠券</span>
+                                <span class="inner-con" ng-if="vm.vouchers.length">{{vm.vouchers[0].voucherAmt.split('.')[0]}}元打车优惠券</span>
+                                <span class="inner-con" ng-if="!vm.vouchers.length">暂无优惠券</span>
+                            </div>
+                            <div class="pay-method border-top" ng-if="vm.showDetail">
+                                <p>支付方式<span class="tip">预授权(翼支付余额)</span></p>
+                                <p class="detail">扣除实际费用后预授权余额实时退还</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notice-box" ng-if="vm.showDetail">
+                        <p class="tips" ng-bind="vm.cancelTime"></p>
+                        <p class="agreement">
+                            <label>
+                                <input type="checkbox" ng-model="vm.agreement">同意</label>
+                            <span ng-click="vm.goToIndex('agentCharge')">《代扣服务协议》</span>
+                        </p>
+                    </div>
+                    <div class="coupon_tip" ng-if="vm.vouchers.length&&!vm.showDetail">您有{{vm.vouchers.length}}张优惠券</div>
+                </ion-scroll>
+                <ion-footer-bar class="index__book" ng-if="vm.showDetail">
+                    <div class="inners">
+                        <div class="con">
+                            <p class="top">预估<em>¥</em><span ng-bind="vm.cost.price|fen2yuan"></span></p>
+                            <p class="bottom">预授权 ¥{{vm.cost.guarantee|fen2yuan}}</p>
+                        </div>
+                        <div class="btns btn-detail" ng-click="vm.openModel()">明细</div>
+                        <div class="btns btn-go" ng-click="vm.checkPay()">去打车</div>
+                    </div>
+                </ion-footer-bar>
+            </ion-side-menu-content>
+            <ion-side-menu side="left" width="220" class="pager_side">
+                <dl>
+                    <dt class="border-bottom" ng-bind="vm.productNo"></dt>
+                    <dd class="order" ng-click="vm.goToIndex('order')">行程</dd>
+                    <dd class="spec" ng-click="vm.goToIndex('spec')">服务</dd>
+                    <dd class="agree" ng-click="vm.goToIndex('agreement')">协议</dd>
+                    <dd class="address" ng-click="vm.goToIndex('address')">常用地址</dd>
+                </dl>
+            </ion-side-menu>
+        </ion-side-menus>
+    </ion-content>
+</ion-view>

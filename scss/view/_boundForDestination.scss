@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.boundForDestination{
+    .driverInfo{
+        background: #fff;
+        width:px2rem(280px);
+      /*  height: px2rem(200px);*/
+        border: 1px solid #ff8803;
+        clear: both;
+        position: fixed;
+        z-index: 10;
+        border-radius: 6px;
+        padding: px2rem(20px) 0;
+        box-shadow: 0px 0px  2px #ff8803;
+        .infoTitle{
+            text-align: center;
+            font-size: px2rem(40px);
+            color:#ff8803;
+            padding-bottom: px2rem(20px);
+        }
+        .infoContent{
+            text-align: center;
+            font-size: px2rem(28px);
+            color:#464646;
+        }
+        .infoPoint{
+            background: url("../img/infoPoint.png");
+            background-size: px2rem(30px) px2rem(30px);
+            height: px2rem(30px);
+            width: px2rem(30px);
+            display: inline-flex;
+            position: absolute;
+            bottom: px2rem(-28px);
+            z-index: 200;
+            left:px2rem(50px)
+        }
+      #panel {
+        position: fixed;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 10px;
+        right: 10px;
+        width: 280px;
+      }
+    }
+    #_mapContainer{
+        width: 100%;
+        height: 100%;
+    }
+}

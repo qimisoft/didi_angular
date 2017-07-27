@@ -1,0 +1,271 @@
+@charset "UTF-8";
+.pager__main {
+    background-color: $color-bg;
+    .side-menu-content {
+        background-color: $color-bg;
+    }
+    .masker {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background: rgba(0, 0, 0, .4);
+    }
+    .car-type-list {
+        background-color: $color-white;
+        height: px2rem(100px);
+        line-height: px2rem(100px);
+        font-size: px2rem(28px);
+        color: $color-46;
+        box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+        overflow: hidden;
+        padding:0 px2rem(20px);
+        .type-list {
+            overflow: hidden;
+            width: 90%;
+            float: left;
+            span {
+                padding-right:px2rem(90px);
+                white-space: nowrap;
+                &.inner1 {
+                    color: $color-c7;
+                }
+                &.inner2 {
+                    color: $color-46;
+                    &.pop {
+                        font-size: px2rem(32px);
+                        color: $color-orange;
+                    }
+                }
+                &:last-child{
+                    padding-right:px2rem(10px);
+                }
+            }
+        }
+        .my {
+            width: 10%;
+            float: left;
+            position: relative;
+            height: px2rem(100px);
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: px2rem(10px);
+                @include transform(translateY(-50%));
+                @include sprite(15px, 15px, 32px, 32px, 10px, 400px);
+            }
+        }
+    }
+    .box {
+        width: 100%;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .m_slides {
+        height: px2rem(140px);
+        width: 100%;
+        box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+    }
+    .static-banner {
+        height: px2rem(140px);
+        background: url(../img/banner.png) 0 0 no-repeat;
+        background-size: 100%;
+        box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+    }
+    .main__inners {
+        padding:px2rem(120px) px2rem(20px);
+        height: 100%;
+        .main__box {
+            background-color: $color-white;
+            margin-top: px2rem(20px);
+            font-size: px2rem(30px);
+            line-height: px2rem(100px);
+            color: $color-46;
+            border-radius: px2rem(6px);
+            box-shadow: 0px 2px 2px rgba(50, 50, 50, .1);
+            .mbox-inner {
+                padding: 0 px2rem(30px);
+                .box__points {
+                    padding-right: px2rem(90px);
+                    position: relative;
+                    font-size: px2rem(34px);
+                    font-weight:400;
+                    .switch-click {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        display: block;
+                        @include transform(translateY(-50%));
+                        @include sprite(30px, 30px, 50px, 50px, 350px, 12px);
+                    }
+                    .inners {
+                        position: relative;
+                        padding-left: px2rem(40px);
+                        span {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            line-height: normal;
+                            padding: px2rem(26px) 0;
+                            &.holder {
+                                color: $color-c7;
+                            }
+                        }
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            @include transform(translateY(-50%));
+                            width: px2rem(16px);
+                            height: px2rem(16px);
+                            border-radius: 50%;
+                            border: 2px solid $color-orange;
+                        }
+                        &.start-point {
+                            &:before {
+                                border-color: $color-green;
+                            }
+                        }
+                    }
+                }
+                .bottom-box {
+                    overflow: hidden;
+                    padding: px2rem(10px) 0;
+                    line-height: px2rem(73px);
+                    .inner-label {
+                        width: 22%;
+                        display: inline-block;
+                        float: left;
+                    }
+                    .inner-con {
+                        float: left;
+                        width: 78%;
+                        display: inline-block;
+                        font-size: px2rem(30px);
+                    }
+                    .inners {
+                        float: left;
+                        width: 50%;
+                        padding-left: px2rem(40px);
+                        position: relative;
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            @include transform(translateY(-50%));
+                            @include sprite(15px, 15px, 30px, 30px, 10px, 10px);
+                        }
+                        &.passenger {
+                            border-left: 1px solid $color-e9;
+                            padding-left: px2rem(70px);
+                            &:before {
+                                left: px2rem(30px);
+                                @include sprite(15px, 15px, 30px, 30px, 170px, 10px);
+                            }
+                        }
+                    }
+                }
+            }
+            .pay-method {
+                height: px2rem(120px);
+                font-size: px2rem(30px);
+                line-height: px2rem(50px);
+                padding-top: px2rem(10px);
+                p {
+                    margin: 0;
+                }
+                .tip {
+                    margin-left: px2rem(20px);
+                    color: $color-orange;
+                }
+                .detail {
+                    color: $color-c7;
+                }
+            }
+        }
+        .coupon_tip {
+            color: $color-a4;
+            font-size: px2rem(30px);
+            margin-top: px2rem(30px);
+            text-align: center;
+        }
+    }
+    .notice-box {
+        padding: px2rem(20px) px2rem(30px);
+        .tips {
+            color: $color-a4;
+            font-size: px2rem(26px);
+            margin-bottom: px2rem(20px);
+        }
+        .agreement {
+            font-size: px2rem(30px);
+            color: $color-46;
+            span {
+                color: $color-orange;
+            }
+            label {
+                font-size: px2rem(30px);
+            }
+            input[type="checkbox"] {
+                margin-right: px2rem(20px);
+                font-size: px2rem(30px);
+                vertical-align: text-bottom;
+                -webkit-appearance: none;
+                background-color: transparent;
+                border-color: transparent;
+                @include sprite(20px, 20px, 40px, 40px, 586px, 301px);
+                &:checked {
+                    @include sprite(20px, 20px, 40px, 40px, 637px, 301px);
+                }
+            }
+        }
+    }
+}
+
+.pager_side {
+    dt {
+        height: px2rem(120px);
+        line-height: px2rem(120px);
+        font-weight: normal;
+        padding-left: 50px;
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: px2rem(20px);
+            @include sprite(22px, 22px, 50px, 50px, 132px, 398px);
+        }
+    }
+    dd {
+        line-height: px2rem(100px);
+        padding-left: 50px;
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        &.order:before {
+            @include sprite(22px, 22px, 47px, 47px, 190px, 400px);
+        }
+        &.spec:before {
+            @include sprite(22px, 22px, 49px, 49px, 250px, 400px);
+        }
+        &.agree:before {
+            @include sprite(22px, 22px, 47px, 47px, 309px, 400px);
+        }
+        &.address:before {
+            @include sprite(22px, 22px, 47px, 47px, 369px, 400px);
+        }
+    }
+}

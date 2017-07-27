@@ -1,0 +1,21 @@
+{
+    "errorCode": null,
+    "errorMsg": null,
+    "result": {
+        "cancelBookMoney": "0.0",
+        "cancelBookTime": null,
+        "cancelRealMoney": "0.0",
+        "cancelRealTime": null,
+        "duration": 27,
+        "durationPrice": 0,
+        "dynamicMd5": "d3cc7bb731aefe19ab80b93df34daf5e",
+        "dynamicPrice": 0,
+        "guarantee": 8720,
+        "otherPrice": 1180,
+        "price": 4360,
+        "startPrice": 0,
+        "trip": "13.25",
+        "tripPrice": 3180
+    },
+    "success": true
+}

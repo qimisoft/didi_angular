@@ -1,0 +1,103 @@
+<ion-view view-title="{{vm.option.title}}" hide-nav-bar="false" cache-view="false" can-swipe-back="false" ng-style="{'height':'{{vm.clientHeight}}px'}">
+    <ion-content overflow-scroll="false" delegate-handle="main-scroll" class="index__detail">
+        <div class="main_box">
+            <div class="cost-min border-bottom">本次用车预计行驶<span>{{vm.cost.trip}}公里  约{{vm.cost.duration|minutes2Hours}}</span></div>
+            <ion-scroll direction="x" scrollbar-x="false" scrollbar-y="false" class="car-type-list">
+            <!-- 此处注释为多种车型预留（超过四种） -->
+                <!-- <ul ng-style="{'width':'{{vm.scroll_length}}'}"> -->
+                <ul>
+                    <!-- <li ng-style="{'width':'{{vm.li_width}}'}" class="inner" ng-repeat="item in vm.carTypesList" ng-class="{'pop':item.value==vm.selectedCarType.value}" ng-click="vm.chooseCarType(item)"> -->
+                    <li class="inner" ng-repeat="item in vm.carTypesList" ng-class="{'pop':item.value==vm.selectedCarType.value}" ng-click="vm.chooseCarType(item)">
+                        <picture class="img{{item.value}}"></picture>
+                        <div ng-bind="item.label"></div>
+                    </li>
+                </ul>
+            </ion-scroll>
+            <ul class="car-form">
+                <li class="pre-price">
+                    <p class="top">预估<em>¥</em><span ng-bind="vm.cost.price|fen2yuan"></span></p>
+                    <p class="tip" ng-click="vm.goToRule()">滴滴服务商计费规则</p>
+                </li>
+                <li class="border-top">
+                    <span class="inner-label">联系电话</span>
+                    <input class="inner-con" type="tel" placeholder="请输入联系电话" maxlength="11" ng-focus="vm.showKeyBords(1)" ng-blur="vm.showKeyBords(0)" ng-model="vm.contactPhoneNo">
+                    <em class="tel-inject" ng-click="vm.openContacts('contact')"></em>
+                </li>
+                <ion-toggle class="car-toggle border-bottom" ng-checked="vm.isProxy" ng-model="vm.isProxy">帮人订车</ion-toggle>
+                <li ng-if="vm.isProxy" class="border-bottom">
+                    <span class="inner-label">乘车人电话</span>
+                    <input class="inner-con" type="tel" placeholder="用于接收短信" ng-model="vm.passengerPhone" maxlength="11" ng-focus="vm.showKeyBords(1)" ng-blur="vm.showKeyBords(0)">
+                    <em class="tel-inject" ng-click="vm.openContacts('passenger')"></em>
+                </li>
+                <li class="border-bottom" ng-if="vm.vouchers">
+                    <span class="inner-label">优惠券</span>
+                    <span class="inner-con">{{vm.vouchers.voucherAmt}}元打车优惠券</span>
+                </li>
+                <li class="pay-method">
+                    <p>支付方式<span class="tip">担保金(可提现余额)</span></p>
+                    <p class="detail">扣除实际费用后担保余额将退还</p>
+                </li>
+            </ul>
+        </div>
+        <div class="notice-box">
+            <p class="tips" ng-bind="vm.cancelTime"></p>
+            <p class="agreement">
+                <label><input type="checkbox" ng-model="vm.agreement">同意</label>
+                <span ng-click="vm.goToAgentCharge()">《代扣服务协议》</span>
+            </p>
+        </div>
+        <div ng-if="vm.showKeyBord" class="showKeyBord-holder"></div>
+    </ion-content>
+    <ion-footer-bar class="index__book">
+        <div class="inners">
+            <div class="con">
+                <p class="top">预估<em>¥</em><span ng-bind="vm.cost.price|fen2yuan"></span></p>
+                <p class="bottom">担保金额¥{{vm.cost.guarantee|fen2yuan}}</p>
+            </div>
+            <div class="btns btn-detail" ng-click="vm.openModel()">明细</div>
+            <div class="btns btn-go" ng-click="vm.checkPay()">去担保</div>
+        </div>
+    </ion-footer-bar>
+</ion-view>
+<script id="cost-detail-modal.html" type="text/ng-template">
+    <div class="modal-outter-bg"></div>
+    <ion-modal-view class="md-impt">
+        <div class="modal-inner-bg" ng-click="vm.closeModal()"></div>
+        <div class="modal-container modal-white">
+            <div class="model-header">费用明细<em class="close" ng-click="vm.closeModal()"></em></div>
+            <ul class="model-inner">
+                <li class="model-inner-part">
+                    <div class="inners" ng-if="vm.cost.startPrice">
+                        起步费<span class="money">¥{{vm.cost.startPrice|fen2yuan}}</span>
+                    </div>
+                    <div class="inners" ng-if="vm.cost.tripPrice">里程费（{{vm.cost.trip}}公里）<span class="money">¥{{vm.cost.tripPrice|fen2yuan}}</span>
+                    </div>
+                    <div class="inners" ng-if="vm.cost.durationPrice">
+                        时长费（{{vm.cost.duration|minutes2Hours}}）<span class="money">¥{{vm.cost.durationPrice|fen2yuan}}</span>
+                    </div>
+                    <div class="inners" ng-if="vm.cost.servicePrice">
+                        服务费<span class="money">¥{{vm.cost.servicePrice|fen2yuan}}</span>
+                    </div>
+                    <div class="inners" ng-if="vm.cost.otherPrice">
+                        其他费用<span class="money">¥{{vm.cost.otherPrice|fen2yuan}}</span>
+                    </div>
+                    <div class="inners" ng-if="vm.cost.dynamicPrice">
+                        需求过旺临时调价<span class="money">¥{{vm.cost.dynamicPrice|fen2yuan}}</span>
+                    </div>
+                </li>
+                <li class="model-inner-part">
+                    <div class="inners">
+                        总额：<span class="money">¥{{vm.cost.price|fen2yuan}}</span>
+                    </div>
+                    <div class="inners">
+                        担保金额：<span class="money">¥{{vm.cost.guarantee|fen2yuan}}</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="model-footer">
+                <p>担保金说明：</p>
+                <p class="tip">实际费用若未超过担保金额，扣除实际费用后余额将退回您的账户</p>
+            </div>
+        </div>
+    </ion-modal-view>
+</script>

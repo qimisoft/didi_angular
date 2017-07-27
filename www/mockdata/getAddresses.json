@@ -1,0 +1,99 @@
+{
+  "errorCode": null,
+  "errorMsg": null,
+  "result": {
+    "address": [
+      {
+        "address": "闵行区申虹路(虹桥机场2号航站楼旁)",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海虹桥站",
+        "lat": "31.1937",
+        "lng": "121.31985"
+      },
+      {
+        "address": "闸北区秣陵路303号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海站",
+        "lat": "31.24982",
+        "lng": "121.45565"
+      },
+      {
+        "address": "浦东新区迎宾大道6000号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海浦东国际机场2号航站楼",
+        "lat": "31.15115",
+        "lng": "121.80917"
+      },
+      {
+        "address": "闵行区七莘路",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海虹桥国际机场2号航站楼",
+        "lat": "31.19415",
+        "lng": "121.32524"
+      },
+      {
+        "address": "徐汇区沪闵路9001号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海南站",
+        "lat": "31.15317",
+        "lng": "121.42953"
+      },
+      {
+        "address": "浦东新区迎宾大道6000号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海浦东国际机场1号航站楼",
+        "lat": "31.14991",
+        "lng": "121.80296"
+      },
+      {
+        "address": "浦东新区申迪西路",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海迪士尼乐园",
+        "lat": "31.14419",
+        "lng": "121.66034"
+      },
+      {
+        "address": "地铁1号线,地铁5号线",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "莘庄-地铁站",
+        "lat": "31.110973",
+        "lng": "121.38512"
+      },
+      {
+        "address": "长宁区虹桥路2550号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海虹桥国际机场1号航站楼",
+        "lat": "31.19396",
+        "lng": "121.34652"
+      },
+      {
+        "address": "杨浦区邯郸路600号",
+        "cityCode": "4",
+        "cityName": "上海市",
+        "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.AddressCollections$Address",
+        "displayName": "上海五角场万达广场",
+        "lat": "31.30144",
+        "lng": "121.51443"
+      }
+    ]
+  },
+  "success": true
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <meta name="format-detection" content="telephone=no" />
+    <!-- build:libCss -->
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+    <!-- endbuild -->
+    <!-- build:businessCss -->
+    <link href="css/main.css" rel="stylesheet">
+    <!-- endbuild -->
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+</head>
+
+<body ng-app="app" ng-controller="GlobalCtrl">
+    <ion-nav-view>
+    </ion-nav-view>
+    <div id="bp_popup_container"></div>
+    <div id="amap_container"></div>
+    <!-- <script src="https://h5.bestpay.com.cn/common/js/bestpay.html5-2.0.js"></script> -->
+     <script type="text/javascript" src="lib/bestpay.html5.local.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.3&key=022986bf71b2d801932ab3bb85be5f7c"></script>
+    <!--<script src="https://webapi.amap.com/maps?v=1.3&key=022986bf71b2d801932ab3bb85be5f7c&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>-->
+    <!--<script src="https://webapi.amap.com/maps?v=1.3&key=a46d21b7d226f71edfbc5c3c175590ac"></script>-->
+    <!-- <script type="text/javascript" src="file:///android_asset/bestpay.html5.js"></script> -->
+    <!-- build:libJs -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
+    <!-- plugin start-->
+    <!-- plugin end-->
+    <!-- endbuild -->
+    <!-- build:businessJs -->
+    <script src="business/app.js"></script>
+    <!-- service start -->
+    <script src="common/services/underscoreService.js"></script>
+    <script src="common/services/dataService.js"></script>
+    <script src="common/services/mapService.js"></script>
+    <script src="common/services/shareDataService.js"></script>
+    <script src="common/services/popupService.js"></script>
+    <!-- service end -->
+    <!-- directives start -->
+    <script src="common/directives/directives.js"></script>
+    <!-- directives end -->
+    <!-- filters start -->
+    <script src="common/filters/filters.js"></script>
+    <!-- filters end -->
+    <!-- controller start -->
+    <script src="business/cancelTrip/cancelTrip.js"></script>
+    <script src="business/cancelTrip/cancelTripService.js"></script>
+    <script src="business/agreement/agreement.js"></script>
+    <script src="business/agreement/agreementService.js"></script>
+    <script src="business/appraise/appraise.js"></script>
+    <script src="business/appraise/appraiseService.js"></script>
+    <script src="business/caculateRule/caculateRule.js"></script>
+    <script src="business/caculateRule/caculateRuleService.js"></script>
+    <script src="business/waitDriver/waitDriver.js"></script>
+    <script src="business/waitDriver/waitDriverService.js"></script>
+    <script src="common/services/talkingDataService.js"></script>
+    <script src="business/main/main.js"></script>
+    <script src="business/main/mainService.js"></script>
+    <script src="business/main/timeService.js"></script>
+    <script src="business/order/order.js"></script>
+    <script src="business/order/orderDetail.js"></script>
+    <script src="business/order/orderService.js"></script>
+    <script src="business/orderCancel/orderCancel.js"></script>
+    <script src="business/orderCancel/orderCancelService.js"></script>
+    <script src="business/spec/spec.js"></script>
+    <script src="business/spec/specService.js"></script>
+    <script src="business/waitAnswer/waitAnswer.js"></script>
+    <script src="business/waitAnswer/waitAnswerService.js"></script>
+    <script src="business/city/city.js"></script>
+    <script src="business/city/cityService.js"></script>
+    <script src="business/searchPlace/searchPlace.js"></script>
+    <script src="business/indexDetail/indexDetail.js"></script>
+    <script src="business/indexDetail/indexDetailService.js"></script>
+    <script src="business/address/address.js"></script>
+    <script src="business/startPoint/startPoint.js"></script>
+    <script src="business/startPoint/startPointService.js"></script>
+    <!-- controller end -->
+    <!-- endbuild -->
+</body>
+
+</html>

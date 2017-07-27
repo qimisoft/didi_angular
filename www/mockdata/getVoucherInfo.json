@@ -1,0 +1,44 @@
+{
+    "success": true,
+    "result": {
+        "vouchers": [{
+            "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.QueryVoucherRes$VoucherInfo",
+            "effectEndTime": "20170728235959",
+            "effectStartTime": "20170418165406",
+            "voucherAmt": "5.00",
+            "voucherName": "didi2",
+            "voucherType": "商户联名券"
+        }, {
+            "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.QueryVoucherRes$VoucherInfo",
+            "effectEndTime": "20170728235959",
+            "effectStartTime": "20170418165406",
+            "voucherAmt": "5.00",
+            "voucherName": "didi2",
+            "voucherType": "商户联名券"
+        }, {
+            "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.QueryVoucherRes$VoucherInfo",
+            "effectEndTime": "20170728235959",
+            "effectStartTime": "20170418165406",
+            "voucherAmt": "5.00",
+            "voucherName": "didi2",
+            "voucherType": "商户联名券"
+        }, {
+            "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.QueryVoucherRes$VoucherInfo",
+            "effectEndTime": "20170728235959",
+            "effectStartTime": "20170418165406",
+            "voucherAmt": "5.00",
+            "voucherName": "didi2",
+            "voucherType": "商户联名券"
+        }, {
+            "class": "com.bestpay.planeticket.product.api.model.resmodel.taxi.QueryVoucherRes$VoucherInfo",
+            "effectEndTime": "20170728235959",
+            "effectStartTime": "20170418165406",
+            "voucherAmt": "5.00",
+            "voucherName": "didi2",
+            "voucherType": "商户联名券"
+        }]
+
+    },
+    "errorCode": null,
+    "errorMsg": null
+}

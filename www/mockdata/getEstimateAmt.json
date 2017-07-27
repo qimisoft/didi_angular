@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "result": {
+        "rideName": "普通型",
+        "rideType": "600",
+        "price": 3460,
+        "dynamicPrice": 0,
+        "priceTip": "",
+        "startPrice": 0,
+        "normalUnitPrice": 240,
+        "dynamicMd5": "d3cc7bb731aefe19ab80b93df34daf5e",
+        "guarantee": 0
+    },
+    "errorCode": null,
+    "errorMsg": null
+}

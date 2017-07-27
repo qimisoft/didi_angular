@@ -1,0 +1,34 @@
+<ion-view view-title="{{vm.options.title}}" hide-tab-bar="true" hide-nav-bar="true" cache-view="false" can-swipe-back="false">
+    <ion-header-bar class="search__box city-fixed">
+        <div class="city-holder" ng-click="vm.goToCity()">
+            <span ng-bind="vm.curCity.cityName"></span>
+        </div>
+        <div class="input-holder">
+            <input type="text" placeholder="{{vm.options.searchHolder}}" ng-model="vm.search">
+        </div>
+        <div class="search__btn--cancle" ng-click="vm.back()">取消</div>
+    </ion-header-bar>
+    <ion-content class="search-place" overflow-scroll="false" scroll="false">
+        <div class="search-list">
+            <ion-scroll class="inners" scrollbar-x="false" scrollbar-y="false" direction="y" ng-if="!vm.no_result">
+                <ul>
+                    <li class="two-col" ng-if="vm.options.showHomeAndCompany">
+                        <div ng-repeat="item in vm.addPoint" ng-click="vm.setHomeOrCompany(item)" class="inners" ng-class="item.type">
+                            <p ng-bind="item.name"></p>
+                            <p ng-if="!item.point" class="lighter" ng-bind="item.placeHolder"></p>
+                            <p ng-if="item.point" class="lighter" ng-bind="item.point.displayName"></p>
+                        </div>
+                    </li>
+                    <li class="normal" ng-repeat="item in vm.addressList track by $index" ng-click="vm.choose(item)" ng-if="item.displayName">
+                        <p ng-bind="item.displayName"></p>
+                        <p class="lighter" ng-bind="item.address"></p>
+                    </li>
+                </ul>
+            </ion-scroll>
+            <div ng-if="vm.no_result" class="city__item--noresult">
+                <picture class="empty-img"></picture>
+                <p>暂无搜索结果</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+.modal-outter-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    &+.modal {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.modal-inner-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.modal-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    overflow: hidden;
+    .header-bar {
+        .btn {
+            height: px2rem(75px);
+            line-height: px2rem(75px);
+        }
+    }
+    .modal__li--normal {
+        height: px2rem(110px);
+        line-height: px2rem(110px);
+        text-align: center;
+        &.pop {
+            color: $color-orange;
+        }
+    }
+}
+
+.modal-normal {
+    background-color: $color-white;
+}
+
+.modal-white {
+    background: $color-white;
+    .model-header {
+        height: px2rem(100px);
+        line-height: px2rem(100px);
+        font-size: px2rem(32px);
+        color: $color-24;
+        text-align: center;
+        position: relative;
+        .close {
+            position: absolute;
+            top: px2rem(30px);
+            right: px2rem(30px);
+            @include sprite(20px, 20px, 29px, 29px, 213px, 12px);
+        }
+    }
+    .model-btn {
+        margin-bottom: px2rem(40px);
+        font-size: px2rem(36px);
+        color: $color-orange;
+        text-align: center;
+    }
+    .model-inner {
+        border-top: $border-default;
+        border-bottom: $border-default;
+        padding: 0 px2rem(30px);
+        line-height: px2rem(70px);
+        font-size: px2rem(30px);
+        color: $color-46;
+        .model-inner-part {
+            padding: px2rem(20px);
+            border-bottom: $border-default;
+            &.limit-height {
+                max-height: px2rem(500px);
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            .bigger {
+                font-size: px2rem(34px);
+            }
+            .inners {
+                overflow: hidden;
+                &.bold {
+                    font-weight: bold;
+                }
+                .money {
+                    color: $color-orange;
+                    float: right;
+                    &.heighlight {
+                        font-weight: bold;
+                    }
+                    &.bigger{
+                        font-size: px2rem(42px);
+                    }
+                    s{
+                        margin-right: px2rem(30px);
+                    }
+                }
+                .com-detail{
+                    font-size: px2rem(28px);
+                    font-weight: normal;
+                    color:$color-c7 ;
+                }
+            }
+        }
+    }
+    .model-footer {
+        font-size: px2rem(30px);
+        color: $color-46;
+        padding: px2rem(20px) px2rem(50px);
+        .tip {
+            color: $color-a4;
+            margin: 0;
+        }
+    }
+}

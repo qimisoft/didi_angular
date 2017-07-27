@@ -1,0 +1,16 @@
+<ion-view view-title="等待应答" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content class="waitAnswer_cont" overflow-scroll="false">
+        <!--<div ng-click="vm.goToCancelTrip()">取消行程</div>-->
+        <div class="wa_lookForCar">正在为您选择车辆</div>
+        <!--<div class="wa_priorNotice">附近的快车将为您优先通知</div>-->
+        <div class="wa_ShowCanvas">
+            <canvas id="canvas" width="600px" height="560px"></canvas>
+        </div>
+    </ion-content>
+
+    <div class="wa_cancelOrder" >
+        <div class="wa_cancelButton" ng-click="vm.goToBack()">取消订单</div>
+        <div class="wa_freeForCancel">司机接单前可免费取消</div>
+    </div>
+
+</ion-view>

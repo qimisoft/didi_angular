@@ -1,0 +1,22 @@
+<ion-view view-title="常见问题">
+    <ion-content class="specCost-body"  overflow-scoll="false"  >
+        <div class="specCost-main">
+            <div ng-if="vm.num=='0'" class="specCost-div">
+                冻结部分金额作为授权，扣除了实际费用后，剩余款项会在24小时内解冻退还。解冻没有短信提示。
+            </div>
+            <div ng-if="vm.num=='1'" class="specCost-div">
+                如您的订单是在最晚取消的时限之前取消的，款项一般会在1-7个工作日原路退还到您的账户中；如您的订单已过最晚取消时限，且您没有用车，订单费用将不做退还。如有问题，请拨打翼支付服务热线
+                <em  href="tel:95106" class="tel-phoneCss" ng-click="vm.telPhone(95106)" >95106</em>。
+            </div>
+            <div ng-if="vm.num=='2'" class="specCost-div">
+                本服务目前不具备发票开具功能，如后期服务迭代中上线开具发票功能，将第一时间更新。
+            </div>
+            <!--<div ng-if="vm.num=='3'" class="specCost-div">-->
+                <!--冻结部分金额作为授权，扣除了实际费用后，剩余款项会在24小时内解冻退还。解冻没有短信提示。-->
+            <!--</div>-->
+            <!--<div ng-if="vm.num=='4'" class="specCost-div">-->
+                <!--冻结部分金额作为授权，扣除了实际费用后，剩余款项会在24小时内解冻退还。解冻没有短信提示。-->
+            <!--</div>-->
+        </div>
+    </ion-content>
+</ion-view>

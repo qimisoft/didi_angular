@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.button{
+  border-color: $color-e9;
+  min-width: px2rem(60px);
+  min-height: px2rem(30px);
+  line-height: 1;
+  &.button-outline{
+    &.button_outline_orange{
+      color: $color-orange;
+      border: 1px solid $color-orange;
+      background-color: $color-white;
+      border-radius: px2rem(6px);
+    }
+  }
+  &.button-full{
+    &.button_bottom{
+      position: absolute;
+      bottom: 0;
+      height: px2rem(100px);
+      color: #242424;
+      font-size: px2rem(36px);
+      margin: 0;
+      background-color: #fff;
+      border-bottom: none;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/**
+ * 自定义scss文件的主文件入 口
+ *
+ * 使用说明：
+ *      1. 其他子scss可引用main.scss定义的全局变量，也可定义自己的变量
+ * 
+ * TODO: 
+ *      1. 将全局变量和reset css定义到一个单独的文件
+ *      
+ */
+
+@import "common/reset.scss";
+
+/**
+ * 全局的变量的定义
+ * 定义说明：
+ *      1. 全局变量不要以下划线开头
+ *          例：
+ *              height:80px --> $height:80px
+ *      2. 各子scss定义的变量以下划线开头,并且添加它的文件名的简称。
+ *          例如：创建一个子文件 myStyle.scss
+ *              height:80px --> $_ms_height:80px; //ms为my和style的缩写，前面添加下划线，表示内部
+ *      3. 颜色变量建议以color开头，后面拼接颜色简写
+ *          例：
+ *              #808080 --> $color-80:      #808080; // 全局color定义
+ *                      --> $_ms-color-80:  #808080; // 子模块color定义
+ *              #809050 --> $color-895:     #809050;         
+ *      4. font大小建议以font开头，后面添加字号简写
+ *          例：
+ *              80px --> $font-80: 80px; //全局font定义
+ *                   --> $_ms-font-80: 80px; //子模块font定义
+ *      5. 除特殊前缀，变量名直接建议用“-”进行连接    
+ */
+
+@import "common/base.scss";
+@import "common/modal.scss";
+@import "common/amap.scss";
+
+/**
+ * inculde other custom scss file, such as:
+ * 
+ * @import style1.scss;
+ * @import style2.scss;
+ */
+
+@import "view/cancelTrip.scss";
+@import	"view/waitAnswerp.scss";
+@import "view/_agreement.scss";
+@import "view/caculateRule.scss";
+@import "view/waitDriver.scss";
+@import "view/common.scss";
+@import "view/main.scss";
+@import "view/city.scss";
+@import "view/searchPlace.scss";
+@import "view/cityPicker.scss";
+@import "view/indexDetail.scss";
+@import "view/order.scss";
+@import "view/address.scss";
+/**
+ * widget UI
+ */
+@import "widget/button.scss";
+
+
+/**
+ * overwrite ionic default UI
+ */
+@import "overwriteIonic/btn.scss";
+@import "overwriteIonic/item.scss";
+@import "overwriteIonic/popup.scss";
+@import "overwriteIonic/icon.scss";
+@import "overwriteIonic/slide-box.scss";
+
+

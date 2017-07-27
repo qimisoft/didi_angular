@@ -1,0 +1,89 @@
+<ion-view view-title="计价规则" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" style="background: #ffffff" class="caculate_Rule">
+       <!-- <div class="title">
+             <hr class="line" /><span class="label">基本费用</span> <hr class="line" />
+        </div>-->
+
+        <div class="box-con">
+            基本费用
+        </div>
+
+        <ul class="tbody">
+            <li class="tr" style="color:#464646;">
+                <div class="td1">车型</div>
+                <div class="td2">起步价</div>
+                <div class="td3">单位</div>
+            </li>
+
+            <li class="tr" ng-repeat="item in vm.ruleList">
+                <div class="td1">{{vm.parseCarType(item.rideType)}}</div>
+                <div class="td2">{{item.priceRule.startPrice}}元</div>
+                <div class="td3"><span ng-if="item.priceRule.startDistance>0">起步价包含{{item.priceRule.startDistance}}公里。</span> {{item.priceRule.normalUnitPrice}}元/公里、{{item.priceRule.timeUnitPrice}}元/分钟</div>
+            </li>
+
+        </ul>
+
+        <div class="method">
+                总费用 = 起步价＋里程费＋时长费＋其他
+        </div>
+        <div class="notice">
+            说明：随叫随到，预约用车服务中产生的高速费，停车费，长途服务费，夜间服务费等费用需要用户额外支付，参看其他费用。
+        </div>
+
+        <div class="box-con">
+            其他费用
+        </div>
+
+
+        <div class="otherFee">
+            <div class="feeTitle">最低消费</div>
+            <div class="feeNotice">
+                里程费、时长费合计不足最低消费时，直接按最低消费额计费：
+            </div>
+            <div class="feeCategory" ng-repeat="item in vm.ruleList track by $index">
+            {{item.rideType | translate: 'rideType'}}：实时用车最低消费{{item.priceRule.minCharge}}元，预约用车最低消费{{item.priceRule.appointmentMinCharge}}元
+        </div>
+        </div>
+
+        <div class="otherFee">
+            <div class="feeTitle">燃油服务费</div>
+            <div class="feeCategory" ng-repeat="item in vm.ruleList">{{vm.parseCarType(item.rideType)}}:{{item.priceRule.fuelFee}}元</div>
+        </div>
+
+        <div class="otherFee">
+            <div class="feeTitle">低速费</div>
+            <div class="feeNotice">
+                速度<12公里/小时为低速,乘客未按约定时间到达/迟到,计费也将按此标准，并显示在低速费中；
+            </div>
+            <div class="feeCategory"  ng-repeat="item in vm.ruleList">{{vm.parseCarType(item.rideType)}}:{{item.priceRule.lowSpeedTimeUnitPrice}}元/分钟</div>
+        </div>
+
+        <div class="otherFee">
+            <div class="feeTitle">长途服务费</div>
+
+            <div class="feeCategory" ng-repeat="item in vm.ruleList track by $index">
+                {{item.rideType | translate: 'rideType'}}：里程超过{{item.priceRule.emptyDistance}}公里，按{{item.priceRule.emptyDrivingUnitPrice}}元/公里收取
+            </div>
+            <!--<div class="feeCategory">舒适性：里程超过20公里，按0.8元/公里收取</div>
+            <div class="feeCategory">豪华型：里程超过20公里，按0.8元/公里收取</div>
+            <div class="feeCategory">商务型：里程超过20公里，按0.8元/公里收取</div>-->
+        </div>
+        <div class="otherFee">
+            <div class="feeTitle">夜间服务费</div>
+            <div class="feeCategory" ng-repeat="item in vm.ruleList track by $index">{{item.rideType | translate: 'rideType'}}：夜间（{{item.priceRule.nightBegin}}-<span ng-if="item.priceRule.nightBegin>item.priceRule.nightEnd">次日</span>{{item.priceRule.nightEnd}})行驶时，按{{item.priceRule.nightDrivingUnitPrice}}元／公里收取</div>
+        </div>
+
+        <div class="otherFee">
+            <div class="feeTitle">取消订单费用</div>
+            <div class="feeCategory" >司机接单1分钟内免费取消，超过可能会产生相应费用。开始服务后订单不可取消</div>
+        </div>
+        <div class="otherFee">
+            <div class="feeTitle">高速费、路桥费、停车费</div>
+            <div class="feeCategory" >按行驶过程中司机实际垫付的费用收取</div>
+        </div>
+        <div class="otherFee">
+            <div class="feeTitle">动态溢价</div>
+            <div class="feeCategory" >因高峰时段用车资源紧张，可能会溢价，敬请谅解</div>
+        </div>
+    </ion-content>
+</ion-view>

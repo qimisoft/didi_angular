@@ -1,0 +1,49 @@
+@charset "UTF-8";
+// footerbar
+.index__book {
+    background-color: $color-white;
+    padding: 0;
+    height: initial;
+    .inners {
+        height: px2rem(120px);
+        width: 100%;
+        overflow: hidden;
+        background:$color-white;
+        .con {
+            float: left;
+            width: 60%;
+            padding-left: px2rem(30px);
+            .top {
+                margin: px2rem(6px) 0 0 0;
+                font-size: px2rem(26px);
+                color: $color-46;
+                em {
+                    margin-left: px2rem(30px);
+                    color: $color-orange;
+                }
+                span {
+                    font-size: px2rem(48px);
+                    color: $color-orange;
+                }
+            }
+            .bottom {
+                color: $color-orange;
+                font-size: px2rem(26px);
+            }
+        }
+        .btns {
+            float: left;
+            width: 20%;
+            line-height: px2rem(120px);
+            color: $color-white;
+            font-size: px2rem(36px);
+            text-align: center;
+            &.btn-detail {
+                background-color: $color-dark;
+            }
+            &.btn-go {
+                background-color: $color-orange;
+            }
+        }
+    }
+}

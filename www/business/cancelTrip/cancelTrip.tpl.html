@@ -1,0 +1,14 @@
+<ion-view view-title="取消行程" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content class="cancelTrip_content" overflow-scroll="false">
+        <div class="ct_cancelInstructions">
+            <div class="ct_img"><span class="ct_remind"></span></div>
+            <!--<div class="ct_text ct-padding">请勿频繁取消，</div>-->
+            <div class="ct_text">频繁取消可能导致处罚金额且无司机应答</div>
+            <!--<div class="ct_text ct_padding">离您最近的司机已接单！为避免影响您的信誉，</div>-->
+            <!--<div class="ct_text ct_paddingBottom">请让司机取消订单</div>-->
+        </div>
+        <div class="ct_tempNotCancel" ng-click="vm.goToPrevious()">暂不取消</div>
+        <div class="ct_ConfCancel" ng-click="vm.goToHomePage()">确认取消</div>
+    </ion-content>
+    <div class="ct_cancelRule" ng-click="vm.goToCancelRule()"><span class="ct_LittleRemind"></span>取消规则</div>
+</ion-view>

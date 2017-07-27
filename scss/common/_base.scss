@@ -1,0 +1,77 @@
+@charset "UTF-8";
+@import "common/mixin.scss";
+@import "common/var.scss";
+html {
+    font-size: 30px;
+}
+
+ion-content {
+    background-color: $color-bg;
+}
+
+.border-bottom {
+    border-bottom: 1px solid $color-e9 !important;
+}
+
+.border-top {
+    border-top: 1px solid $color-e9 !important;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) {
+    html {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+        font-size: 26px;
+    }
+}
+
+.button.button-positive {
+    background-color: white;
+    border-color: $color-orange;
+    color: $color-orange;
+}
+
+.button.button-positive:hover {
+    color: $color-orange;
+}
+
+.button.button-positive.active,
+.button.button-positive.activated {
+    background-color: $color-orange;
+    border-color: $color-orange;
+    color: $color-white;
+}
+
+
+/**
+ * overwrite ionic
+ */
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+    -webkit-box-flex: $fg;
+    -webkit-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
+}
+
+.col-30 {
+    @include flex(0, 0, 30%);
+    max-width: 30%;
+}
+
+.col-70 {
+    @include flex(0, 0, 70%);
+    max-width: 70%;
+}
+
+.pane {
+    background-color: $color-bg;
+}
+
+.showKeyBord-holder {
+    height: px2rem(250px);
+}
