@@ -1,0 +1,17 @@
+<ion-view view-title="我的代金券" hide-nav-bar="false" cache-view="false" can-swipe-back="false">
+    <ion-content overflow-scroll="false" class="coupon-list" ng-class="{'bg-white':vm.noCoupon}">
+        <ion-list class="inner-list" ng-if="!vm.noCoupon">
+            <ion-item class="item" ng-repeat="item in vm.couponList" ng-click="vm.choose(item)">
+                <h2 ng-bind="item.voucherName"></h2>
+                <h3>{{item.effectStartTime|dateFliter}}至{{item.effectEndTime|dateFliter}}有效</h3>
+                <p ng-if="item.spendingLimit">满{{item.spendingLimit.split('.')[0]}}减{{item.voucherAmt.split('.')[0]}}元</p>
+                <p ng-if="!item.spendingLimit">最高抵扣{{item.voucherAmt.split('.')[0]}}元</p>
+                <div class="money"><span class="number" ng-bind="item.voucherAmt.split('.')[0]"></span>元</div>
+            </ion-item>
+        </ion-list>
+        <div class="no-list" ng-if="vm.noCoupon">
+        	<picture></picture>
+        	<p>您暂无优惠券</p>
+        </div>
+    </ion-content>
+</ion-view>

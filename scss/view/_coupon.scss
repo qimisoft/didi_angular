@@ -1,0 +1,69 @@
+@charset "UTF-8";
+.coupon-list {
+    padding: 0 px2rem(40px);
+    .inner-list {
+        .item {
+            background: url(../img/coupon_bg.png) repeat-x;
+            border: none;
+            border-bottom: 4px solid $color-orange;
+            border-bottom-left-radius: px2rem(6px);
+            border-bottom-right-radius: px2rem(6px);
+            margin-top: px2rem(30px);
+            background-size: 3%;
+            padding: px2rem(20px) px2rem(34px);
+            padding-right: px2rem(120px);
+            >h2 {
+                font-size: px2rem(38px);
+                color: $color-orange;
+            }
+            >h3 {
+                font-size: px2rem(26px);
+                font-weight: normal;
+                color: $color-orange;
+            }
+            >p {
+                color: $color-a4;
+                font-size: px2rem(26px);
+                margin: px2rem(108px) 0 0 0;
+            }
+            .money {
+                position: absolute;
+                top: 0;
+                right: px2rem(30px);
+                color: $color-orange;
+                font-size: px2rem(26px);
+                .number {
+                    font-size: px2rem(90px);
+                }
+            }
+            &:last-child {
+                margin-bottom: px2rem(30px);
+            }
+            &:after{
+            	content: '';
+            	display: block;
+            	position:absolute;
+            	bottom:0;
+            	right: 0;
+            	z-index: -1;
+            	width: 100%;
+            	height: 100%;
+            	background: url(../img/couponcar.png) no-repeat bottom right;
+            	background-size: 50%;
+            }
+        }
+    }
+    .no-list {
+        margin-top: px2rem(250px);
+        color: $color-a4;
+        text-align: center;
+        picture {
+            margin-bottom: px2rem(40px);
+            display: inline-block;
+            @include sprite(113px, 80px, 227px, 161px, 300px, 549px);
+        }
+    }
+    &.bg-white {
+        background: $color-white;
+    }
+}

@@ -267,5 +267,8 @@
         &.address:before {
             @include sprite(22px, 22px, 47px, 47px, 369px, 400px);
         }
+        &.coupon:before {
+            @include sprite(22px, 22px, 47px, 47px, 487px, 450px);
+        }
     }
 }

@@ -34,7 +34,11 @@
     function minutesToHours() {
         return function(val) {
             if (!val) {
-                return '--分钟';
+                if (val === 0) {
+                    return '0分钟';
+                } else {
+                    return '--分钟';
+                }
             }
             val = Math.ceil(val);
             if (Math.floor(val / 60) === 0) {
@@ -51,7 +55,7 @@
 
     function mToKm() {
         return function(val) {
-            return val ? ((val < 100) ? 0.1 : (val / 1000).toFixed(1)) : '--';
+            return val ? ((val < 100) ? 0.1 : (val / 1000).toFixed(1)) : (val === 0 ? '0' : '--');
         };
     }
 
@@ -114,7 +118,7 @@
                 'combo_fee': '套餐费用',
                 'normal_time_fee': '时长费',
                 'cancel_fee': '违约费',
-                'dynamic_price': '需求过旺临时调价',
+                'dynamic_price': '临时加价',
                 'wait_fee': '等候费',
                 'refund_price': '退款金额',
                 'servicePrice': '服务费'

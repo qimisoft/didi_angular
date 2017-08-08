@@ -4,7 +4,7 @@
     function dataService($http, $rootScope, $state, $ionicLoading, $ionicPopup, $q, BpPopup) {
 
         var _env = 2;
-        var _isMock = true;
+        var _isMock = false;
 
         var serverUrl = "",
             overUrl = "",

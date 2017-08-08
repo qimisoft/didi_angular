@@ -234,6 +234,23 @@
                     vm.modal.hide();
                 }
 
+                // 溢价modal
+                $ionicModal.fromTemplateUrl('business/main/dynamic-price-modal.html', {
+                    scope: $scope
+                }).then(function(modal) {
+                    vm.modal2 = modal;
+                });
+                vm.openModel2 = function() {
+                    TD.TalkingData.onEventWithLabel("ddcx_0001_0018", "滴滴出行_首页_点击预估费用明细");
+                    vm.modal2.show();
+                }
+                vm.closeModal2 = function(flag) {
+                    vm.modal2.hide();
+                    if (flag) {
+                        enterPass();
+                    }
+                }
+
                 // 时间选择器，vm.timePicker.valueData为格式化的出发时间
                 vm.timePicker = {
                     backdrop: true,
@@ -417,6 +434,12 @@
                                 // 有支持车型默认选中第一个
                                 vm.selectedCarType = _.find(vm.carTypesList, { state: '2' });
                                 ShareDataService.data_selectedCarType = vm.selectedCarType;
+                                MainService.getLocationByLngLat(function(point) {
+                                    if (point) {
+                                        vm.endPoint = point;
+                                        vm.startPoint && (_getPres(vm.selectedCarType));
+                                    }
+                                })
                             } else {
                                 // 没有可以选择的车型（翼支付配置+滴滴支持）
                                 BpPopup.showToast('您所在城市不支持打车服务');
@@ -499,7 +522,15 @@
                     if (!_carUserIsNew) {
                         localStorage.setItem(keyOfSave, '1');
                     }
+                    if (vm.cost.dynamicPrice) {
+                        vm.openModel2();
+                    } else {
+                        enterPass();
+                    }
+                }
 
+                //  输密码
+                var enterPass = function() {
                     App.openSafeKeyBoard(6, "支付密码", function(pass) {
                         vm.goToPay(pass);
                     });
@@ -509,6 +540,8 @@
                 vm.goToPay = function(pass) {
                     TD.TalkingData.onEventWithLabel("ddcx_0001_0019", "滴滴出行_首页_点击去打车"); //请求接口bookCar,无论成功与否
                     var _params = {
+                        clng: ShareDataService.data_LBSPoint ? ShareDataService.data_LBSPoint.lng + '' : vm.startPoint.lng,
+                        clat: ShareDataService.data_LBSPoint ? ShareDataService.data_LBSPoint.lat + '' : vm.startPoint.lat,
                         servicePrice: vm.cost.servicePrice,
                         dynamicPrice: vm.cost.dynamicPrice,
                         startPrice: vm.cost.startPrice,
@@ -563,6 +596,8 @@
                             historySolve('clear');
                             // 保存历史记录
                             _saveHistoryInLocal(vm.startPoint, vm.endPoint);
+                            // 储存支持车型
+                            ShareDataService.data_carTypes = vm.carTypesList;
                             // 跳转
                             $state.go('waitAnswer', { orderNo: resp.result.orderNo });
                         } else if (resp.errorCode == 'AM0001') {
@@ -632,7 +667,9 @@
                         ShareDataService.data_agreement = false;
                         ShareDataService.data_cost = null;
                     }
-                }
+                };
+                //MainService.getLocationByLngLat(vm,31.2396900000,121.4997200000);
+                //MainService.getLocationByLngLat(vm,31.1937,121.31985);
             }
         ])
 })();

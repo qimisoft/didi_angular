@@ -189,7 +189,7 @@ ion-content {
       height: 20px;
       background-image: url(../img/sprite.png);
       background-repeat: no-repeat;
-      background-size: 496.55172px 488.96552px;
+      background-size: 496.55172px 413.7931px;
       background-position: -146.89655px -8.27586px; }
   .modal-white .model-btn {
     margin-bottom: 0.4rem;
@@ -241,74 +241,26 @@ ion-content {
 
 #amap-start {
   height: 100%; }
-  #amap-start .amap-info-content {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    color: #3db29b; }
-  #amap-start .amap-info-sharp,
-  #amap-start .amap-info-close {
-    display: none; }
   #amap-start .start_marker {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -47px 0 0 -24px;
+    margin: -53px 0 0 -20px;
     z-index: 99;
-    width: 30px;
-    height: 41px;
+    width: 40px;
+    height: 53px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 415.38462px 415.27143px;
-    background-position: -5.76923px -188.01429px; }
-  #amap-start .marker_zoom {
-    position: relative;
-    width: 42px;
-    height: 42px; }
-    #amap-start .marker_zoom:before {
-      content: '';
-      position: absolute;
-      z-index: 1;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) inset;
-      -webkit-animation: zoomAnimation 2s linear infinite;
-      animation: zoomAnimation 2s linear infinite;
-      background: #3db29b; }
-    #amap-start .marker_zoom em {
-      position: absolute;
-      z-index: 2;
-      left: 0;
-      top: 0;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 1px solid #fff;
-      background: #3db29b; }
+    background-size: 553.84615px 454.28571px;
+    background-position: -7.69231px -243.04286px; }
   #amap-start .address-holder {
     background: #ffffff;
-    width: 100%;
-    left: 0;
+    width: 92%;
+    left: 4%;
     position: absolute;
-    bottom: 0;
-    padding: 0.2rem 1rem 0.2rem 0.9rem;
+    bottom: 2%;
+    padding: 0.2rem;
     z-index: 99; }
-    #amap-start .address-holder:before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0.3rem;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
-      width: 18px;
-      height: 24px;
-      background-image: url(../img/sprite.png);
-      background-repeat: no-repeat;
-      background-size: 249.23077px 243.08571px;
-      background-position: -3.46154px -110.05714px; }
     #amap-start .address-holder .detail {
       color: #c7c7c7; }
     #amap-start .address-holder .btn {
@@ -316,71 +268,12 @@ ion-content {
       top: 50%;
       right: 0;
       padding: 0.3rem;
-      color: #ff7800;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%); }
-    #amap-start .address-holder .recommend {
-      display: inline-block;
-      color: #ffffff;
-      background: #3db29b;
-      font-size: 0.26rem;
-      padding: 0.02rem 0.08rem;
-      margin-left: 0.1rem; }
 
 #amap-order {
-  height: 100%; }
-
-@keyframes zoomAnimation {
-  0% {
-    left: 7px;
-    top: 7px;
-    opacity: 0;
-    width: 0;
-    height: 0; }
-  5% {
-    left: 7px;
-    top: 7px;
-    opacity: 1;
-    width: 0;
-    height: 0; }
-  95% {
-    left: -14px;
-    top: -14px;
-    opacity: 0;
-    width: 42px;
-    height: 42px; }
-  100% {
-    left: -14px;
-    top: -14px;
-    opacity: 0;
-    width: 42px;
-    height: 42px; } }
-
-@-webkit-keyframes zoomAnimation {
-  0% {
-    left: 7px;
-    top: 7px;
-    opacity: 0;
-    width: 0;
-    height: 0; }
-  5% {
-    left: 7px;
-    top: 7px;
-    opacity: 1;
-    width: 0;
-    height: 0; }
-  95% {
-    left: -14px;
-    top: -14px;
-    opacity: 0;
-    width: 42px;
-    height: 42px; }
-  100% {
-    left: -14px;
-    top: -14px;
-    opacity: 0;
-    width: 42px;
-    height: 42px; } }
+  height: 60%;
+  top: 40%; }
 
 /**
  * inculde other custom scss file, such as:
@@ -402,7 +295,7 @@ ion-content {
       height: 66px;
       background-image: url(../img/sprite.png);
       background-repeat: no-repeat;
-      background-size: 387.69231px 371.38095px;
+      background-size: 387.69231px 314.28571px;
       background-position: -155.07692px -103.19048px; }
   .cancelTrip_content .ct_cancelInstructions .ct_text {
     text-align: center;
@@ -451,7 +344,7 @@ ion-content {
     height: 16px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 480px 436.30769px;
+    background-size: 480px 369.23077px;
     background-position: -440px -14.15385px; }
 
 /*
@@ -673,7 +566,7 @@ ion-content {
         height: 20px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 320px 315.11111px;
+        background-size: 320px 266.66667px;
         background-position: -236.88889px -5.77778px; }
       .appraise-mainAppraise .appraise-apprasiseDiv .appraise-appStars .appraise-appStarSeled {
         float: left;
@@ -682,7 +575,7 @@ ion-content {
         height: 20px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 320px 315.11111px;
+        background-size: 320px 266.66667px;
         background-position: -211.55556px -5.77778px; }
     .appraise-mainAppraise .appraise-apprasiseDiv .appraise-appStarVal {
       float: right; }
@@ -984,7 +877,7 @@ ion-content {
       height: 0.93rem;
       background-image: url(../img/sprite.png);
       background-repeat: no-repeat;
-      background-size: 9.84706rem 9.69662rem;
+      background-size: 9.84706rem 8.20588rem;
       background-position: -0.24618rem -3.24132rem; }
   .boundForDestination .carInfo .km_min {
     float: left;
@@ -1071,7 +964,7 @@ ion-content {
     transform: scale(0.5); }
   .search__box .input-holder {
     float: left;
-    width: 55%;
+    width: 45%;
     height: 100%;
     overflow: hidden;
     padding: 0.2rem 0; }
@@ -1152,8 +1045,11 @@ ion-content {
         height: 15px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 337.5px 332.34375px;
+        background-size: 337.5px 281.25px;
         background-position: -4.6875px -187.5px; }
+  .pager__main .scroll {
+    height: 100%;
+    width: 100%; }
   .pager__main .box {
     width: 100%;
     height: 100%; }
@@ -1170,8 +1066,7 @@ ion-content {
     background-size: 100%;
     box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.1); }
   .pager__main .main__inners {
-    padding: 1.2rem 0.2rem;
-    height: 100%; }
+    padding: 0.2rem; }
     .pager__main .main__inners .main__box {
       background-color: #ffffff;
       margin-top: 0.2rem;
@@ -1184,9 +1079,7 @@ ion-content {
         padding: 0 0.3rem; }
         .pager__main .main__inners .main__box .mbox-inner .box__points {
           padding-right: 0.9rem;
-          position: relative;
-          font-size: 0.34rem;
-          font-weight: 400; }
+          position: relative; }
           .pager__main .main__inners .main__box .mbox-inner .box__points .switch-click {
             position: absolute;
             top: 50%;
@@ -1198,7 +1091,7 @@ ion-content {
             height: 30px;
             background-image: url(../img/sprite.png);
             background-repeat: no-repeat;
-            background-size: 432px 425.4px;
+            background-size: 432px 360px;
             background-position: -210px -7.2px; }
           .pager__main .main__inners .main__box .mbox-inner .box__points .inners {
             position: relative;
@@ -1254,7 +1147,7 @@ ion-content {
               height: 15px;
               background-image: url(../img/sprite.png);
               background-repeat: no-repeat;
-              background-size: 360px 354.5px;
+              background-size: 360px 300px;
               background-position: -5px -5px; }
             .pager__main .main__inners .main__box .mbox-inner .bottom-box .inners.passenger {
               border-left: 1px solid #e9e9e9;
@@ -1265,9 +1158,10 @@ ion-content {
                 height: 15px;
                 background-image: url(../img/sprite.png);
                 background-repeat: no-repeat;
-                background-size: 360px 354.5px;
+                background-size: 360px 300px;
                 background-position: -85px -5px; }
       .pager__main .main__inners .main__box .pay-method {
+        padding: 0 0.3rem;
         height: 1.2rem;
         font-size: 0.3rem;
         line-height: 0.5rem;
@@ -1289,7 +1183,7 @@ ion-content {
     .pager__main .notice-box .tips {
       color: #a4a4a4;
       font-size: 0.26rem;
-      margin-bottom: 0.2rem; }
+      margin-bottom: 0.6rem; }
     .pager__main .notice-box .agreement {
       font-size: 0.3rem;
       color: #464646; }
@@ -1308,14 +1202,14 @@ ion-content {
         height: 20px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 360px 354.5px;
+        background-size: 360px 300px;
         background-position: -293px -150.5px; }
         .pager__main .notice-box .agreement input[type="checkbox"]:checked {
           width: 20px;
           height: 20px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 360px 354.5px;
+          background-size: 360px 300px;
           background-position: -318.5px -150.5px; }
 
 .pager_side dt {
@@ -1332,8 +1226,8 @@ ion-content {
     height: 22px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 316.8px 311.96px;
-    background-position: -58.08px -175.12px; }
+    background-size: 337.02128px 280.85106px;
+    background-position: -61.78723px -187.70213px; }
 
 .pager_side dd {
   line-height: 1rem;
@@ -1348,28 +1242,28 @@ ion-content {
     height: 22px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 337.02128px 331.87234px;
+    background-size: 337.02128px 280.85106px;
     background-position: -88.93617px -187.23404px; }
   .pager_side dd.spec:before {
     width: 22px;
     height: 22px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 323.26531px 318.32653px;
+    background-size: 323.26531px 269.38776px;
     background-position: -112.2449px -179.59184px; }
   .pager_side dd.agree:before {
     width: 22px;
     height: 22px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 337.02128px 331.87234px;
+    background-size: 337.02128px 280.85106px;
     background-position: -144.6383px -187.23404px; }
   .pager_side dd.address:before {
     width: 22px;
     height: 22px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 337.02128px 331.87234px;
+    background-size: 337.02128px 280.85106px;
     background-position: -172.7234px -187.23404px; }
 
 .city__citychoose .city__bg {
@@ -1434,7 +1328,7 @@ ion-content {
   height: 18px;
   background-image: url(../img/sprite.png);
   background-repeat: no-repeat;
-  background-size: 462.85714px 455.78571px;
+  background-size: 462.85714px 385.71429px;
   background-position: -34.07143px -7.71429px; }
 
 .city__item--noresult {
@@ -1451,7 +1345,7 @@ ion-content {
     height: 65px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 344.11765px 338.86029px;
+    background-size: 344.11765px 286.76471px;
     background-position: -4.30147px -217.46324px; }
 
 .search-place .search-list {
@@ -1485,7 +1379,7 @@ ion-content {
       height: 18px;
       background-image: url(../img/sprite.png);
       background-repeat: no-repeat;
-      background-size: 432px 425.4px;
+      background-size: 432px 360px;
       background-position: -7.2px -7.2px; }
     .search-place .search-list li:last-child {
       border-bottom: none; }
@@ -1503,7 +1397,6 @@ ion-content {
         background-color: #e9e9e9; }
       .search-place .search-list li.two-col .inners {
         position: relative;
-        overflow: hidden;
         float: left;
         width: 50%;
         padding: 0.2rem 0.2rem 0.2rem 0.9rem; }
@@ -1516,7 +1409,7 @@ ion-content {
           height: 22px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 316.8px 311.96px;
+          background-size: 316.8px 264px;
           background-position: -244.2px -173.8px; }
         .search-place .search-list li.two-col .inners:before {
           content: '';
@@ -1530,7 +1423,7 @@ ion-content {
           height: 22px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 316.8px 311.96px;
+          background-size: 316.8px 264px;
           background-position: -222.2px -173.8px; }
 
 .city-picker-bg {
@@ -1701,28 +1594,28 @@ ion-content {
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -189.61165px -51.11111px; }
         .index__detail .main_box .car-type-list .inner picture.img100 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -265.04854px -51.11111px; }
         .index__detail .main_box .car-type-list .inner picture.img400 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -340.48544px -51.11111px; }
         .index__detail .main_box .car-type-list .inner picture.img200 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -414.56311px -51.11111px; }
       .index__detail .main_box .car-type-list .inner.pop {
         color: #ff7800;
@@ -1732,28 +1625,28 @@ ion-content {
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -189.61165px -96.2963px; }
         .index__detail .main_box .car-type-list .inner.pop picture.img100 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -265.04854px -96.2963px; }
         .index__detail .main_box .car-type-list .inner.pop picture.img400 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -340.48544px -96.2963px; }
         .index__detail .main_box .car-type-list .inner.pop picture.img200 {
           width: 70px;
           height: 40px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 489.32039px 525.18519px;
+          background-size: 489.32039px 444.44444px;
           background-position: -414.56311px -96.2963px; }
         .index__detail .main_box .car-type-list .inner.pop:before {
           position: absolute;
@@ -1788,7 +1681,7 @@ ion-content {
           height: 14px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 336px 330.86667px;
+          background-size: 336px 280px;
           background-position: -116.66667px -6.06667px;
           vertical-align: middle; }
     .index__detail .main_box .car-form .item {
@@ -1836,7 +1729,7 @@ ion-content {
         height: 26px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 332.30769px 335.16364px;
+        background-size: 332.30769px 283.63636px;
         background-position: -52.61538px -115.81818px; }
     .index__detail .main_box .car-form .pay-method {
       height: 1.2rem;
@@ -1874,14 +1767,14 @@ ion-content {
         height: 20px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 360px 354.5px;
+        background-size: 360px 300px;
         background-position: -293px -150.5px; }
         .index__detail .notice-box .agreement input[type="checkbox"]:checked {
           width: 20px;
           height: 20px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 360px 354.5px;
+          background-size: 360px 300px;
           background-position: -318.5px -150.5px; }
 
 /**
@@ -1922,13 +1815,13 @@ ion-content {
     height: 0.3rem; }
     .sl_icon.sl_icon_small.sl_icon_time {
       background: url(../img/sprite.png) no-repeat -0.12rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_small.sl_icon_person {
       background: url(../img/sprite.png) no-repeat -1.7rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_small.sl_icon_carNo {
       background: url(../img/sprite.png) no-repeat -1.3rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
   .sl_icon.sl_icon_middle {
     position: relative;
     top: 3px;
@@ -1936,56 +1829,46 @@ ion-content {
     height: 0.5rem; }
     .sl_icon.sl_icon_middle.sl_icon_ok {
       background: url(../img/sprite.png) no-repeat -2.9rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
-      .sl_icon.sl_icon_middle.sl_icon_ok.ing {
-        width: 25px;
-        height: 25px;
-        background-image: url(../img/sprite.png);
-        background-repeat: no-repeat;
-        background-size: 257.14286px 253.21429px;
-        background-position: -6.07143px -83.57143px; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_middle.sl_icon_fail {
       background: url(../img/sprite.png) no-repeat -5.9rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_middle.sl_icon_cancel {
       background: url(../img/sprite.png) no-repeat -4.1rem -0.1rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_middle.sl_icon_wait {
       background: url(../img/sprite.png) no-repeat -1.7rem -3.2rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
   .sl_icon.sl_icon_big {
     width: 0.81rem;
     height: 0.81rem; }
     .sl_icon.sl_icon_big.sl_icon_help {
       background: url(../img/sprite.png) no-repeat -1rem -0.5rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_big.sl_icon_call {
       background: url(../img/sprite.png) no-repeat -1.9rem -0.5rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_big.sl_icon_cancel {
       background: url(../img/sprite.png) no-repeat -0.1rem -1.4rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_big.sl_icon_again {
       background: url(../img/sprite.png) no-repeat -1rem -1.4rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
     .sl_icon.sl_icon_big.sl_icon_pencil {
       background: url(../img/sprite.png) no-repeat -0.1rem -0.5rem;
-      background-size: 7.2rem 7.09rem; }
-    .sl_icon.sl_icon_big.sl_icon_gift {
-      background: url(../img/sprite.png) no-repeat -0.63rem -6.01rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
   .sl_icon.sl_icon_large {
     width: 1.4rem;
     height: 1.4rem; }
     .sl_icon.sl_icon_large.sl_icon_fail {
       background: url(../img/sprite.png) no-repeat -4.36rem -1.91rem;
-      background-size: 7.2rem 7.09rem; }
+      background-size: 7.2rem 6rem; }
 
 .sl_cells {
   background-color: #fff;
   width: 100%; }
   .sl_cells .sl_cell {
-    padding: 0.2rem 0.3rem;
+    padding: 0.3rem;
     border-top: 1px solid #e9e9e9; }
     .sl_cells .sl_cell.options {
       text-align: center; }
@@ -2076,7 +1959,7 @@ ion-content {
     height: 65px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 344.11765px 338.86029px;
+    background-size: 344.11765px 286.76471px;
     background-position: -74.08088px -217.46324px; }
 
 /**
@@ -2103,50 +1986,13 @@ ion-content {
 
 .order-detail {
   line-height: 1;
+  margin-bottom: 0.4rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 99;
-  background-color: #ffffff;
-  -webkit-transition: 0.5s;
-  transition: 0.5s; }
-  .order-detail.close-panel {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-    .order-detail.close-panel .handle-btn:before {
-      -webkit-transform: rotate(135deg);
-      transform: rotate(135deg);
-      margin-top: -10px; }
-  .order-detail .handle-btn {
-    position: absolute;
-    width: 59px;
-    height: 25px;
-    background-image: url(../img/sprite.png);
-    background-repeat: no-repeat;
-    background-size: 408.46154px 402.84091px;
-    background-position: -87.36538px -352.84091px;
-    left: 50%;
-    bottom: 0;
-    z-index: 100;
-    -webkit-transform: translate3d(-50%, 100%, 0);
-    transform: translate3d(-50%, 100%, 0); }
-    .order-detail .handle-btn:before {
-      content: '';
-      display: block;
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -5px;
-      margin-left: -5px;
-      border-top: 1px solid #ff7800;
-      border-right: 1px solid #ff7800;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-transition: 0.1s;
-      transition: 0.1s; }
+  background-color: #ffffff; }
   .order-detail .hint {
     font-size: 0.26rem;
     color: #a4a4a4;
@@ -2178,12 +2024,6 @@ ion-content {
         margin-bottom: 2px; }
     .order-detail .top-box .hint {
       margin: 0.24rem 0 0 0.6rem; }
-      .order-detail .top-box .hint.duration {
-        font-size: 0.3rem;
-        color: #464646; }
-        .order-detail .top-box .hint.duration span {
-          color: #ff7800;
-          font-size: 0.34rem; }
     .order-detail .top-box .options {
       text-align: center; }
       .order-detail .top-box .options .button {
@@ -2203,9 +2043,9 @@ ion-content {
         margin-right: 0; }
       .order-detail .detail-box .sl_cell .options .option .label {
         display: block;
+        margin-top: 0.2rem;
         color: #ff7800;
-        font-size: 0.3rem;
-        padding: 0.2rem 0; }
+        font-size: 0.26rem; }
   .order-detail .detail-box .user_info {
     padding: 0.4rem 0.3rem; }
     .order-detail .detail-box .user_info .address {
@@ -2218,40 +2058,30 @@ ion-content {
         margin-left: 0.44rem;
         line-height: 1.2; }
   .order-detail .detail-box .driver_info {
-    padding: 0.2rem 1.1rem 0.2rem 1.5rem;
+    padding: 0.3rem 0.3rem 0.3rem 1.8rem;
     position: relative;
     color: #464646; }
     .order-detail .detail-box .driver_info picture {
       position: absolute;
-      top: 0.2rem;
+      top: 0.3rem;
       left: 0.3rem;
       display: block;
       vertical-align: middle;
-      width: 0.96rem;
-      height: 0.96rem;
+      width: 1.2rem;
+      height: 1.2rem;
       background-size: cover;
       background-position: center center;
-      border-radius: 100%;
-      background-image: url(../img/driver.png); }
+      border-radius: 100%; }
     .order-detail .detail-box .driver_info > h2 {
       color: #464646;
       margin: 0;
       font-size: 0.32rem; }
     .order-detail .detail-box .driver_info > p {
       margin: 0; }
+      .order-detail .detail-box .driver_info > p.detail {
+        color: #c7c7c7; }
       .order-detail .detail-box .driver_info > p.middle {
-        margin-top: 0.2rem;
-        font-size: 0.28rem;
-        color: #464646; }
-        .order-detail .detail-box .driver_info > p.middle span {
-          background: #d8d8d8;
-          padding: 0.06rem 0.1rem;
-          border-radius: 0.04rem;
-          display: inline-block; }
-          .order-detail .detail-box .driver_info > p.middle span.detail {
-            color: #a4a4a4;
-            background: transparent;
-            margin-left: 0.2rem; }
+        margin: 0.16rem 0; }
     .order-detail .detail-box .driver_info > em {
       position: absolute;
       top: 0.3rem;
@@ -2262,8 +2092,8 @@ ion-content {
       height: 40px;
       background-image: url(../img/sprite.png);
       background-repeat: no-repeat;
-      background-size: 384px 378.13333px;
-      background-position: -160px -244.26667px; }
+      background-size: 360px 300px;
+      background-position: -95px -25px; }
     .order-detail .detail-box .driver_info .options {
       margin-top: 0.3rem; }
   .order-detail .detail-box .hint {
@@ -2316,7 +2146,7 @@ ion-content {
           height: 26px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 374.4px 368.68px;
+          background-size: 374.4px 312px;
           background-position: -213.72px -5.72px; }
       .pager__address .inners .add-list .item .item-inners p {
         font-size: 0.26rem;
@@ -2338,14 +2168,14 @@ ion-content {
         height: 22px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 316.8px 311.96px;
+        background-size: 316.8px 264px;
         background-position: -222.2px -173.8px; }
         .pager__address .inners .add-list .item .item-inners em.company {
           width: 22px;
           height: 22px;
           background-image: url(../img/sprite.png);
           background-repeat: no-repeat;
-          background-size: 316.8px 311.96px;
+          background-size: 316.8px 264px;
           background-position: -244.2px -173.8px; }
       .pager__address .inners .add-list .item .item-inners i {
         position: absolute;
@@ -2358,7 +2188,7 @@ ion-content {
         height: 14px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 336px 330.86667px;
+        background-size: 336px 280px;
         background-position: -116.66667px -6.06667px; }
     .pager__address .inners .add-list .item .delete-btn {
       position: absolute;
@@ -2447,7 +2277,7 @@ ion-content {
     height: 20px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 496.55172px 488.96552px;
+    background-size: 496.55172px 413.7931px;
     background-position: -146.89655px -8.27586px; }
   .popup-body .wait-img {
     display: block;
@@ -2456,7 +2286,7 @@ ion-content {
     height: 42px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 343.63636px 338.38636px;
+    background-size: 343.63636px 286.36364px;
     background-position: -91.15909px -109.77273px; }
   .popup-body .point-img {
     display: block;
@@ -2465,7 +2295,7 @@ ion-content {
     height: 55px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 396px 389.95px;
+    background-size: 396px 330px;
     background-position: -322.85px -105.6px; }
   .popup-body .alert-img {
     display: block;
@@ -2474,7 +2304,7 @@ ion-content {
     height: 50px;
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
-    background-size: 253.52113px 249.64789px;
+    background-size: 253.52113px 211.26761px;
     background-position: -100.70423px -67.60563px; }
   .popup-body .passenger-wrap {
     padding: 0 0.9rem; }
@@ -2499,35 +2329,8 @@ ion-content {
         height: 24px;
         background-image: url(../img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 432px 425.4px;
+        background-size: 432px 360px;
         background-position: -52.8px -237.6px; }
-  .popup-body .gift-confirm .close {
-    position: absolute;
-    top: 0;
-    right: 0.2rem;
-    width: 22px;
-    height: 50px;
-    background-image: url(../img/sprite.png);
-    background-repeat: no-repeat;
-    background-size: 360px 354.5px;
-    background-position: -5px -300.5px; }
-  .popup-body .gift-confirm .inners {
-    height: 8rem;
-    position: relative;
-    border-radius: 0.2rem;
-    background: url(../img/gift.png) center center no-repeat;
-    background-size: cover; }
-    .popup-body .gift-confirm .inners .button {
-      height: 0.68rem;
-      line-height: 0.68rem;
-      width: 80%;
-      color: #ffffff;
-      background: #ff8803;
-      border-radius: 0.68rem;
-      position: absolute;
-      left: 10%;
-      font-size: 0.34rem;
-      bottom: 0.5rem; }
 
 .index__book {
   background-color: #ffffff;

@@ -5,7 +5,10 @@
         <div class="model-header">费用明细<em class="close" ng-click="closeModal()"></em></div>
         <ul class="model-inner">
             <li class="model-inner-part limit-height" ng-if="order.amtState == '11'">
-                <div class="inners" ng-if="item.amount != 0" ng-repeat="item in priceDetail">{{item.feeType | translate: 'feeType'}}<span class="money">¥{{item.amount|fen2yuan}}</span></div>
+                <div class="inners" ng-class="{'orange':item.feeType==='dynamic_price'}" ng-if="item.amount != 0" ng-repeat="item in priceDetail">
+                    <span ng-if="item.feeType==='dynamic_price'">临时加价{{(item.amount/(priceDetail.total_price - item.amount)).toFixed(1)}}倍</span>
+                    <span ng-if="item.feeType!='dynamic_price'">{{item.feeType | translate: 'feeType'}}</span>
+                    <span class="money">¥{{item.amount|fen2yuan}}</span></div>
             </li>
             <li class="model-inner-part" ng-if="order.amtState == '10'">
                 <div class="inners" ng-if="priceDetail.start_price != 0">起步费<span class="money">¥{{priceDetail.start_price|fen2yuan}}</span></div>
@@ -13,7 +16,7 @@
                 <div class="inners" ng-if="priceDetail.normal_time_fee != 0">时长费（{{priceDetail.normalTime|minutes2Hours}}）<span class="money">¥{{priceDetail.normal_time_fee|fen2yuan}}</span></div>
                 <div class="inners" ng-if="priceDetail.servicePrice != 0">服务费<span class="money">¥{{priceDetail.servicePrice|fen2yuan}}</span></div>
                 <div class="inners" ng-if="priceDetail.other != 0">其他费用<span class="money">¥{{priceDetail.other|fen2yuan}}</span></div>
-                <div class="inners" ng-if="priceDetail.dynamic_price != 0">需求过旺临时调价<span class="money">¥{{priceDetail.dynamic_price|fen2yuan}}</span></div>
+                <div class="inners orange" ng-if="priceDetail.dynamic_price != 0">临时加价{{(priceDetail.dynamic_price/(priceDetail.total_price - priceDetail.dynamic_price)).toFixed(1)}}倍<span class="money">¥{{priceDetail.dynamic_price|fen2yuan}}</span></div>
                 <div class="inners bold" ng-if="order.amtState != '11'">
                     总额：<span class="money heighlight">¥{{priceDetail.total_price|fen2yuan}}</span>
                 </div>
@@ -30,7 +33,7 @@
                     <p class="com-detail">优惠券的使用规则最终解释权归翼支付所有</p>
                 </div>
                 <div class="inners bold bigger" ng-if="order.amtState == '10'">
-                     预授权金额：<span class="money heighlight bigger">  ¥{{priceDetail.guarantee|fen2yuan}}</span>
+                    预授权金额：<span class="money heighlight bigger">  ¥{{priceDetail.guarantee|fen2yuan}}</span>
                 </div>
             </li>
         </ul>
@@ -38,5 +41,6 @@
             <p>预授权说明：</p>
             <p class="tip">实际费用若未超过预授权金额，扣除实际费用后余额将退回您的账户</p>
         </div>
+        <div class="model-btn"><span ng-click="goto('caculateRule')">查看计费规则</span></div>
     </div>
 </ion-modal-view>

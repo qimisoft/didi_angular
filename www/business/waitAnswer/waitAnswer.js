@@ -43,104 +43,85 @@
             function($scope, $rootScope, $state, $location, $ionicHistory, $ionicPopup, $interval, waitAnswerService, ShareDataService, DataService, BpPopup, $stateParams, TD, MainService) {
                 var vm = $scope.vm = {};
                 vm.isAlready = false; //判断是否接单，false未接单,如果接单了，则跳转到行程详情页面，再进行取消。
-                //$stateParams.orderNo = "20170420094524591007";
                 var orderstateParams = { orderNo: $stateParams.orderNo };
                 var confirmPopup = null;
-
-                $scope.onBack = function() {
-                        App.exitApp(); //产品闵越双 确认这么做 出事她担着
-                    }
-                    //对应的订单等待时间，如果从上一页传过来订单时间，则直接根据订单时间来进行判断等待时间（单位为10ms），默认为-1，
+                //对应的订单等待时间，如果从上一页传过来订单时间，则直接根据订单时间来进行判断等待时间（单位为10ms），默认为-1，
                 var time = $stateParams.orderTime ? (parseInt((new Date() - new Date($stateParams.orderTime.replace(/\-/g, "\/"))) / 100)) : -1;
 
+                $scope.onBack = function() {
+                    App.exitApp(); //产品闵越双 确认这么做 出事她担着
+                }
+
                 var orderState$intervalTime = $interval(function() {
-                    if (time >= 6 * 60 * 1000) {
+                    console.log('--------已等待' + time + '*100ms');
+                    if (time >= 6 * 60 * 10) {
                         $interval.cancel(orderState$intervalTime);
-                        BpPopup.showToast("等待订单超时，请重新下单");
-                        $state.go('index');
+                        if (ShareDataService.data_selectedCarType.value === '600' && _.find(ShareDataService.data_carTypes, { label: '舒适型', value: '100', state: '2' })) {
+                            //支持舒适型的城市，6分钟打不到车，提示舒适型
+                            rideTypeComfirm();
+                        } else {
+                            BpPopup.showToast("等待订单超时，请重新下单");
+                            $state.go('index', { isOrder: 1 });
+                        }
                         return;
                     }
+                    queryOrderState();
+                }, 10000);
+                queryOrderState();
+
+                function queryOrderState() {
+                    // 轮询订单状态
                     DataService.run("queryOrderState", orderstateParams, function(res) {
                         if (res.success && res.result) {
                             ShareDataService.myOrder = res.result;
                         }
                         if (res.success && res.result && res.result.orderState != "01") { //订单实时，如果为01等待接单
-                            //clearInterval(orderStateTime);
                             $interval.cancel(orderState$intervalTime);
                             vm.isAlready = true;
                             if (res.result.orderState == "02") {
                                 BpPopup.showToast("您的订单已被司机接单");
                                 $state.go('orderDetail'); //参数已经通过ShareDataService.myOrder中传过去
                             } else {
-                                $state.go('orderDetail', { orderNo: $stateParams.orderNo });
+                                // 滴滴取消订单
+                                if (ShareDataService.data_selectedCarType.value === '600' && _.find(ShareDataService.data_carTypes, { label: '舒适型', value: '100', state: '2' })) {
+                                    //支持舒适型的城市，提示舒适型
+                                    rideTypeComfirm();
+                                } else {
+                                    BpPopup.showToast("等待订单超时，请重新下单");
+                                    $state.go('index', { isOrder: 1 });
+                                }
                             }
                         } else {
                             vm.isAlready = false;
                         }
                     }, function() {});
-                }, 10000);
-                DataService.run("queryOrderState", orderstateParams, function(res) {
-                    if (res.success && res.result) {
-                        ShareDataService.myOrder = res.result;
-                    }
-                    if (res.success && res.result && res.result.orderState != "01") { //订单实时，如果为01等待接单
-                        //clearInterval(orderStateTime);
-                        $interval.cancel(orderState$intervalTime);
-                        vm.isAlready = true;
-                        if (res.result.orderState == "02") {
-                            BpPopup.showToast("您的订单已被司机接单");
-                            $state.go('orderDetail'); //参数已经通过ShareDataService.myOrder中传过去
-                        } else {
-                            $state.go('orderDetail', { orderNo: $stateParams.orderNo });
-                        }
-                    } else {
-                        vm.isAlready = false;
-                    }
-                }, function() {});
+                }
 
-                /*定时10s 查询实时订单（需要在逻辑跳转关闭定时器）*/
-                //var orderStateTime = setInterval(function(){
-                //    console.log("waitAnswer Time = "+time);
-                //
-                //    DataService.run("queryOrderState",orderstateParams,function(res){
-                //        if(res.success && res.result){
-                //            ShareDataService.myOrder = res.result;
-                //        }
-                //        if(res.success && res.result && res.result.orderState != "01"){//订单实时，如果为01等待接单
-                //            clearInterval(orderStateTime);
-                //            vm.isAlready = true;
-                //            if(res.result.orderState == "02"){
-                //                BpPopup.showToast("您的订单已被司机接单");
-                //                $state.go('orderDetail');//参数已经通过ShareDataService.myOrder中传过去
-                //            }else{
-                //                $state.go('orderDetail',{orderNo:$stateParams.orderNo});
-                //            }
-                //        }else{
-                //            vm.isAlready = false;
-                //        }
-                //    },function(){});
-                //
-                //    if(time >= 6 * 60 * 1000){
-                //        BpPopup.showToast("等待订单超时，请重新下单");
-                //        $state.go('index');
-                //    }
-                //
-                //},10000);
-
-                $scope.$on('$ionicView.beforeLeave', function(ev, data) {
-                    //clearInterval(orderStateTime);
+                function rideTypeComfirm() {
                     $interval.cancel(orderState$intervalTime);
-                    confirmPopup.close(); //离开页面 关闭弹框啊 add by lison 20170428
+                    confirmPopup && confirmPopup.close();
+                    confirmPopup = $ionicPopup.confirm({
+                        cancelText: '返回首页',
+                        okText: '舒适车型',
+                        title: '当前周围经济型车司机较少，其他车型司机较多，换种车型吧！'
+                    });
+                    confirmPopup.then(function(res) {
+                        res && (ShareDataService.data_selectedCarType = { label: '舒适型', value: '100', state: '2' });
+                        $state.go('index', { isOrder: 1 });
+                    });
+                }
+                $scope.$on('$ionicView.beforeLeave', function(ev, data) {
+                    $interval.cancel(orderState$intervalTime);
+                    confirmPopup && confirmPopup.close(); //离开页面 关闭弹框啊 add by lison 20170428
                 });
 
                 vm.goToCancelTrip = function() { //取消行程
-                    //clearInterval(orderStateTime);
                     $interval.cancel(orderState$intervalTime);
-                    // $state.go('cancelTrip',{orderNo:$stateParams.orderNo});
                     MainService.cancelTrip($stateParams.orderNo); //产生费用，弹窗取消
                 }
                 vm.goToBack = function() {
                     TD.TalkingData.onEventWithLabel("ddcx_0005_0001", "滴滴出行_等待应答页面_点击取消订单");
+                    confirmPopup && confirmPopup.close();
                     confirmPopup = $ionicPopup.confirm({
                         title: '',
                         template: '正在为您寻找车辆，确定不再等一下吗？', //您是否取消此次订单 改的
@@ -160,11 +141,8 @@
                                     $rootScope.hideLoading();
                                     $interval.cancel(orderState$intervalTime);
                                     if (cancelRes.result.isCost) {
-                                        // BpPopup.showToast("您的订单已被司机接单");
-                                        // $state.go('cancelTrip',{orderNo:$stateParams.orderNo});
                                         MainService.cancelTrip($stateParams.orderNo); //产生费用，弹窗取消
                                     } else {
-                                        //$scope.back();
                                         $state.go('index', { isOrder: '1' });
                                     }
                                 }, function(errorRes) {
@@ -172,9 +150,7 @@
                                     errorRes ? BpPopup.showToast(errorRes.errorMsg) : BpPopup.showToast("系统繁忙，请稍后重试");
                                 });
                             } else {
-                                //clearInterval(orderStateTime);
                                 $interval.cancel(orderState$intervalTime);
-                                // $state.go('cancelTrip',{orderNo:$stateParams.orderNo});
                                 MainService.cancelTrip($stateParams.orderNo); //产生费用，弹窗取消
                             }
                         } else {
@@ -184,8 +160,6 @@
                     });
 
                 };
-
-
 
                 var canvas = document.getElementById("canvas"),
                     ctx = canvas.getContext("2d"),
@@ -256,24 +230,24 @@
                 }
 
                 var _getTimeStr = function(time) {
-                        time = Math.floor(time / 10);
+                    time = Math.floor(time / 10);
 
-                        var str = "00:00",
-                            temp = (time % 60).toString();
-                        if (Math.floor(time / 60) == 0) {
-                            str = "00:" + (temp.length == 1 ? "0" + temp : temp);
+                    var str = "00:00",
+                        temp = (time % 60).toString();
+                    if (Math.floor(time / 60) == 0) {
+                        str = "00:" + (temp.length == 1 ? "0" + temp : temp);
+                    } else {
+                        var timeNum = "";
+                        if (Math.floor(time / 60) < 10) {
+                            timeNum = '0' + Math.floor(time / 60);
                         } else {
-                            var timeNum = "";
-                            if (Math.floor(time / 60) < 10) {
-                                timeNum = '0' + Math.floor(time / 60);
-                            } else {
-                                timeNum = Math.floor(time / 60);
-                            }
-                            str = timeNum + ":" + (temp.length == 1 ? "0" + temp : temp);
+                            timeNum = Math.floor(time / 60);
                         }
-                        return str;
+                        str = timeNum + ":" + (temp.length == 1 ? "0" + temp : temp);
                     }
-                    // 刷新
+                    return str;
+                }
+                // 刷新
                 var _loading = function() {
                     if (time == percent) {
                         clearInterval(circleLoading);

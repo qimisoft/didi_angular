@@ -13,8 +13,6 @@
                         </span><span class="descmore" ng-if="order.orderState == '09'">（余额不足）</span>
                         </span>
                         <div class="sl_right_label ellipsis" ng-if="order.amtState != '00'">
-                            <span ng-if="order.amtState == '10'">预估金额</span>
-                            <span ng-if="order.amtState == '11'">订单金额</span>
                             <span class="cost">
                                 <span class="unit">￥</span>
                             <span class="amount" ng-if="order.amtState == '10'">{{order.estimateAmt | fen2yuan}}</span>
@@ -22,6 +20,8 @@
                             <span class="amount" ng-if="order.amtState == '11'&&!order.voucherAmt">{{order.totalPrice | fen2yuan}}</span>
                             </span>
                             <i class="right_arrow"></i>
+                            <div class="detail" ng-if="order.amtState == '10'">（预估金额）</div>
+                            <div class="detail" ng-if="order.amtState == '11'">（订单金额）</div>
                         </div>
                     </div>
                     <p class="hint" ng-if="order.orderState != '04' && order.orderState != '05'">{{order.hint}}</p>
@@ -35,9 +35,12 @@
                     <div class="sl_cell driver_info" ng-show="order.driverName">
                         <picture ng-if="order.driverAvatar&&order.driverAvatar!=''" style="background-image:url('{{order.driverAvatar|http2https}}')"></picture>
                         <picture ng-if="!(order.driverAvatar&&order.driverAvatar!='')"></picture>
-                        <h2>{{order.driverName || '--'}}</h2>
+                        <h2>{{order.driverName || '--'}}<span class="star">{{order.driverLevel}}&nbsp;{{order.driverOrderCount}}单</span></h2>
                         <p class="middle"><span ng-bind="order.driverCard || '--'"></span><span class="detail">{{order.driverCarType || '--'}}</span></p>
-                        <em ng-click="goto('call')"></em>
+                        <div class="round-box">
+                            <em class="gift" ng-if="optionsShow.gift" ng-click="goto('gift')"></em>
+                            <em class="call" ng-click="goto('call')"></em>
+                        </div>
                     </div>
                     <div class="sl_cell" ng-if="optionsShow.remark||optionsShow.cancel||optionsShow.again">
                         <div class="options">
@@ -54,16 +57,12 @@
                                 <!-- <span class="sl_icon sl_icon_big sl_icon_again"></span> -->
                                 <span class="label">重新预订</span>
                             </div>
-                            <div class="option again" ng-if="optionsShow.gift" ng-click="goto('gift')">
-                                <!-- <span class="sl_icon sl_icon_big sl_icon_gift"></span> -->
-                                <span class="label">领取红包</span>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="sl_cells border-top" ng-if="order.orderState == '08' || order.orderState == '09'">
                     <div class="sl_cell options">
-                        <button class="button button-positive" ng-click="payOrder()">
+                        <button class="button" ng-click="payOrder()">
                             {{order.btnTxt}}
                         </button>
                     </div>

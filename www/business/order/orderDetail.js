@@ -295,7 +295,11 @@
                     }
                     if (needRefreshCar.indexOf(order.orderState) > -1) {
                         carTime = order.orderState == '02' ? 10000 : 60000;
-                        consoleOrderState(order.orderNo);
+                        if (order.orderState == '02') {
+                            queryState(order.orderNo);
+                        } else {
+                            consoleOrderState(order.orderNo);
+                        }
                     }
                     if (order.orderState == '10') {
                         // 已完成订单，分享红包
@@ -345,6 +349,9 @@
 
                 $scope.goto = function(page, index) {
                     switch (page) {
+                        case 'caculateRule':
+                            $state.go('caculateRule', { cityCode: $scope.order.cityCode });
+                            break;
                         case 'gift':
                             MainService.giftAlert($scope, true);
                             break;
@@ -385,7 +392,7 @@
                                 BpPopup.alert('开始服务后订单不可取消');
                                 return;
                             } else {
-                                MainService.cancelTrip(order.orderNo); //产生费用，弹窗取消
+                                MainService.cancelTrip(order.orderNo, loadOrder); //产生费用，弹窗取消
                             }
                             break;
                     }

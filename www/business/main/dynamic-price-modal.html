@@ -1,0 +1,20 @@
+<div class="modal-outter-bg"></div>
+<ion-modal-view class="md-impt">
+    <div class="modal-inner-bg" ng-click="vm.closeModal2()"></div>
+    <div class="modal-container modal-full">
+        <div class="dynamic-box">
+            <h2>加价鼓励司机接单</h2>
+            <h3>附近叫车人过多，车辆较少</h3>
+            <div class="inners">
+                <div>加价倍率</div>
+                <div class="alert-box">+<span>{{(vm.cost.dynamicPrice/(vm.cost.price - vm.cost.dynamicPrice)).toFixed(1)}}</span>倍</div>
+                <div>加价后约为<span class="orange">{{vm.cost.price|fen2yuan}}</span>元，报价有效时间2分钟</div>
+            </div>
+            <div class="tips">加价金额会全部给到司机</div>
+            <div class="btns">
+                <div class="button accept" ng-click="vm.closeModal2(true)">我愿意给司机加价</div>
+                <div class="button button-positive" ng-click="vm.closeModal2()">等会再叫车</div>
+            </div>
+        </div>
+    </div>
+</ion-modal-view>

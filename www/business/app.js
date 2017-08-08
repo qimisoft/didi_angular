@@ -68,6 +68,7 @@
         'indexDetail',
         'cancelTrip',
         'address',
+        'coupon',
         'startPoint',
         'agreement',
         'appraise',
@@ -281,7 +282,7 @@
                     } catch (e) {
 
                     }
-                }
+                };
             }
         ])
 })();

@@ -71,7 +71,6 @@
     }
     .model-inner {
         border-top: $border-default;
-        border-bottom: $border-default;
         padding: 0 px2rem(30px);
         line-height: px2rem(70px);
         font-size: px2rem(30px);
@@ -95,23 +94,27 @@
                 &.bold {
                     font-weight: bold;
                 }
+                &.orange {
+                    color: $color-orange;
+                }
                 .money {
                     color: $color-orange;
                     float: right;
                     &.heighlight {
                         font-weight: bold;
                     }
-                    &.bigger{
+                    &.bigger {
                         font-size: px2rem(42px);
                     }
-                    s{
+                    s {
                         margin-right: px2rem(30px);
                     }
                 }
-                .com-detail{
+                .com-detail {
                     font-size: px2rem(28px);
                     font-weight: normal;
-                    color:$color-c7 ;
+                    color: $color-c7;
+                    margin: 0;
                 }
             }
         }
@@ -120,9 +123,87 @@
         font-size: px2rem(30px);
         color: $color-46;
         padding: px2rem(20px) px2rem(50px);
+        border-top: $border-default;
         .tip {
             color: $color-a4;
             margin: 0;
+        }
+    }
+}
+
+.modal-full {
+    background: $color-white;
+    height: 100%;
+    .dynamic-box {
+        padding: px2rem(62px) px2rem(30px) 0 px2rem(30px);
+        text-align: center;
+        >h2 {
+            color: $color-46;
+            font-size: px2rem(48px);
+            margin-bottom: px2rem(46px);
+        }
+        >h3 {
+            font-weight: normal;
+            color: $color-46;
+            font-size: px2rem(36px);
+            margin: 0;
+        }
+        .inners {
+            position: relative;
+            margin: px2rem(60px) auto;
+            width: 85%;
+            padding: px2rem(60px) 0;
+            box-shadow: 1px 2px 16px rgba(105, 104, 104, 0.1);
+            font-size: px2rem(30px);
+            color: #969696;
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: $color-white;
+                top: -6px;
+                left: 50%;
+                margin-left: -5px;
+                @include transform(rotate(-45deg));
+            }
+            .alert-box {
+                color: $color-orange;
+                margin: px2rem(40px) 0;
+                font-size: px2rem(30px);
+                span {
+                    font-size: px2rem(98px);
+                    margin: 0 px2rem(10px);
+                }
+            }
+            .orange {
+                color: $color-orange;
+            }
+        }
+        .tips {
+            font-size: px2rem(30px);
+            color: $color-46;
+            margin-bottom: px2rem(60px);
+            &:before {
+                content: '';
+                display: inline-block;
+                @include sprite(24px, 24px, 40px, 40px, 658px, 18px);
+                vertical-align: middle;
+            }
+        }
+        .btns {
+            .button {
+                width: 100%;
+                height: px2rem(90px);
+                line-height: px2rem(90px);
+                margin-bottom: px2rem(30px);
+                &.accept {
+                    color: $color-white;
+                    background-color: $color-orange;
+                    border-color: $color-orange;
+                }
+            }
         }
     }
 }

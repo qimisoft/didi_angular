@@ -19,8 +19,8 @@
                 <div class="inners" ng-if="vm.cost.otherPrice">
                     其他费用<span class="money">¥{{vm.cost.otherPrice|fen2yuan}}</span>
                 </div>
-                <div class="inners" ng-if="vm.cost.dynamicPrice">
-                    需求过旺临时调价<span class="money">¥{{vm.cost.dynamicPrice|fen2yuan}}</span>
+                <div class="inners orange" ng-if="vm.cost.dynamicPrice">
+                    临时加价{{(vm.cost.dynamicPrice/(vm.cost.price - vm.cost.dynamicPrice)).toFixed(1)}}倍<span class="money">¥{{vm.cost.dynamicPrice|fen2yuan}}</span>
                 </div>
                 <div class="inners bold">
                     总额：<span class="money heighlight">¥{{vm.cost.price|fen2yuan}}</span>

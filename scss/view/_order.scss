@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+
+
+
 /**
  * 行程相关页面 自定义的一些公共变量 by zsl
  */
@@ -49,40 +52,39 @@ $black: #242424;
         height: px2rem(30px);
         &.sl_icon_time {
             background: url(../img/sprite.png) no-repeat px2rem(-12px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_person {
             background: url(../img/sprite.png) no-repeat px2rem(-170px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_carNo {
             background: url(../img/sprite.png) no-repeat px2rem(-130px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
     }
     &.sl_icon_middle {
-        position: relative;
-        top: 3px;
+        vertical-align: middle;
         width: px2rem(50px);
         height: px2rem(50px);
         &.sl_icon_ok {
             background: url(../img/sprite.png) no-repeat px2rem(-290px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
             &.ing {
                 @include sprite(25px, 25px, 70px, 70px, 17px, 234px);
             }
         }
         &.sl_icon_fail {
             background: url(../img/sprite.png) no-repeat px2rem(-590px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_cancel {
             background: url(../img/sprite.png) no-repeat px2rem(-410px) px2rem(-10px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_wait {
             background: url(../img/sprite.png) no-repeat px2rem(-170px) px2rem(-320px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
     }
     &.sl_icon_big {
@@ -90,27 +92,27 @@ $black: #242424;
         height: px2rem(81px);
         &.sl_icon_help {
             background: url(../img/sprite.png) no-repeat px2rem(-100px) px2rem(-50px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_call {
             background: url(../img/sprite.png) no-repeat px2rem(-190px) px2rem(-50px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_cancel {
             background: url(../img/sprite.png) no-repeat px2rem(-10px) px2rem(-140px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_again {
             background: url(../img/sprite.png) no-repeat px2rem(-100px) px2rem(-140px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_pencil {
             background: url(../img/sprite.png) no-repeat px2rem(-10px) px2rem(-50px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
         &.sl_icon_gift {
             background: url(../img/sprite.png) no-repeat px2rem(-63px) px2rem(-601px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
     }
     &.sl_icon_large {
@@ -118,7 +120,7 @@ $black: #242424;
         height: px2rem(140px);
         &.sl_icon_fail {
             background: url(../img/sprite.png) no-repeat px2rem(-436px) px2rem(-191px);
-            background-size: px2rem(720px) px2rem(709px);
+            background-size: px2rem(720px) px2rem(710px);
         }
     }
 }
@@ -127,7 +129,7 @@ $black: #242424;
     background-color: #fff;
     width: 100%;
     .sl_cell {
-        padding: px2rem(20px) px2rem(30px);
+        padding: px2rem(30px);
         border-top: 1px solid #e9e9e9;
         &.options {
             text-align: center;
@@ -135,6 +137,9 @@ $black: #242424;
                 padding: 0 0.66rem;
                 height: 0.66rem;
                 font-size: 0.32rem;
+                background: $color-orange;
+                color: #fff;
+                border-color: $color-orange;
             }
         }
         &:first-child {
@@ -166,6 +171,9 @@ $black: #242424;
             float: right;
             color: #a4a4a4;
             font-size: px2rem(30px);
+            .detail {
+                margin-top: px2rem(28px);
+            }
             .right_arrow {
                 display: inline-block;
                 margin-bottom: 1px;
@@ -179,6 +187,10 @@ $black: #242424;
         }
     }
 }
+
+
+
+
 
 
 /**
@@ -250,6 +262,10 @@ $black: #242424;
 }
 
 
+
+
+
+
 /**
  * 行程详情 页面
  */
@@ -289,8 +305,8 @@ $black: #242424;
     @include transition(0.5s);
     &.close-panel {
         @include transform(translate3d(0, -100%, 0));
-        .handle-btn{
-            &:before{
+        .handle-btn {
+            &:before {
                 @include transform(rotate(135deg));
                 margin-top: -10px;
             }
@@ -331,8 +347,9 @@ $black: #242424;
         margin-top: 0;
         .status-box {
             .sl_left_label {
-                font-size: px2rem(40px);
+                font-size: px2rem(36px);
                 color: $color-orange;
+                vertical-align: middle;
                 .icon_circle_orange {
                     width: px2rem(40px);
                     height: px2rem(40px);
@@ -351,7 +368,7 @@ $black: #242424;
                         font-size: px2rem(30px);
                     }
                     .amount {
-                        font-size: px2rem(42px);
+                        font-size: px2rem(44px);
                     }
                 }
                 .right_arrow {
@@ -361,7 +378,7 @@ $black: #242424;
             }
         }
         .hint {
-            margin: px2rem(24px) 0 0 px2rem(60px);
+            margin: px2rem(20px) 0 0 px2rem(80px);
             &.duration {
                 font-size: px2rem(30px);
                 color: $color-46;
@@ -399,8 +416,8 @@ $black: #242424;
                     .label {
                         display: block;
                         color: $color-orange;
-                        font-size: px2rem(30px);
-                        padding: px2rem(20px) 0;
+                        font-size: px2rem(34px);
+                        padding: px2rem(2px) 0;
                     }
                 }
             }
@@ -421,53 +438,77 @@ $black: #242424;
             }
         }
         .driver_info {
-            padding: px2rem(20px) px2rem(110px) px2rem(20px) px2rem(150px);
+            padding: px2rem(30px) px2rem(110px) px2rem(30px) px2rem(150px);
             position: relative;
             color: $color-46;
             picture {
                 position: absolute;
-                top: px2rem(20px);
+                top: px2rem(30px);
                 left: px2rem(30px);
                 display: block;
                 vertical-align: middle;
-                width: px2rem(96px);
-                height: px2rem(96px);
+                width: px2rem(88px);
+                height: px2rem(88px);
                 background-size: cover;
                 background-position: center center;
                 border-radius: 100%;
                 background-image: url(../img/driver.png);
             }
             >h2 {
-                color: $color-46;
+                color: #969696;
                 margin: 0;
-                font-size: px2rem(32px);
+                font-size: px2rem(30px);
+                .star {
+                    font-weight: normal;
+                    font-size: px2rem(26px);
+                    margin-left: px2rem(74px);
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        margin-right: px2rem(10px);
+                        vertical-align: middle;
+                        @include sprite(14px, 14px, 48px, 48px, 477px, 17px);
+                    }
+                }
             }
             >p {
                 margin: 0;
                 &.middle {
-                    margin-top: px2rem(20px);
+                    margin-top: px2rem(16px);
                     font-size: px2rem(28px);
-                    color: $color-46;
+                    color: #242424;
                     span {
-                        background: #d8d8d8;
-                        padding: px2rem(6px) px2rem(10px);
+                        font-size: px2rem(26px);
+                        background: #eeeeee;
+                        padding: px2rem(6px);
                         border-radius: px2rem(4px);
                         display: inline-block;
                         &.detail {
                             color: $color-a4;
                             background: transparent;
-                            margin-left: px2rem(20px);
+                            margin-left: px2rem(30px);
                         }
                     }
                 }
             }
-            >em {
+            .round-box {
                 position: absolute;
-                top: px2rem(30px);
+                top: 50%;
                 right: px2rem(30px);
-                display: block;
-                vertical-align: middle;
-                @include sprite(40px, 40px, 75px, 75px, 300px, 458px);
+                width: px2rem(180px);
+                @include transform(translateY(-50%));
+                overflow: hidden;
+                .call {
+                    float: right;
+                    display: inline-block;
+                    margin-right: px2rem(20px);
+                    @include sprite(35px, 35px, 75px, 75px, 300px, 458px);
+                }
+                .gift {
+                    float: right;
+                    display: inline-block;
+                    @include sprite(35px, 35px, 75px, 75px, 64px, 602px);
+                }
             }
             .options {
                 margin-top: px2rem(30px);
@@ -480,7 +521,7 @@ $black: #242424;
             .body {
                 padding-top: px2rem(22px);
                 padding-bottom: px2rem(22px);
-                & > div {
+                &>div {
                     margin-bottom: px2rem(15px);
                     &:last-child {
                         margin-bottom: 0;

@@ -39,6 +39,9 @@
     text-align: center;
     font-size: px2rem($font-32);
     color: $color-46;
+    .orange-span {
+        color: $color-orange;
+    }
     .close-btn {
         position: absolute;
         top: px2rem(20px);
@@ -59,6 +62,11 @@
         display: block;
         margin: 0 auto px2rem(30px);
         @include sprite(50px, 50px, 142px, 142px, 286px, 192px);
+    }
+    .light-img {
+        display: block;
+        margin: 0 auto px2rem(30px);
+        @include sprite(50px, 50px, 86px, 86px, 392px, 456px);
     }
     .passenger-wrap {
         padding: 0 px2rem(90px);
@@ -93,7 +101,7 @@
         .inners {
             height: px2rem(800px);
             position: relative;
-            border-radius:px2rem(20px);
+            border-radius: px2rem(20px);
             background: url(../img/gift.png) center center no-repeat;
             background-size: cover;
             .button {

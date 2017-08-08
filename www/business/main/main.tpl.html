@@ -66,7 +66,7 @@
                             <span ng-click="vm.goToIndex('agentCharge')">《代扣服务协议》</span>
                         </p>
                     </div>
-                    <div class="coupon_tip" ng-if="vm.vouchers.length&&!vm.showDetail">您有{{vm.vouchers.length}}张优惠券</div>
+                    <div class="coupon_tip" ng-if="vm.vouchers.length&&!vm.showDetail" ng-click="vm.goToIndex('coupon')">您有{{vm.vouchers.length}}张优惠券</div>
                 </ion-scroll>
                 <ion-footer-bar class="index__book" ng-if="vm.showDetail">
                     <div class="inners">
@@ -86,6 +86,7 @@
                     <dd class="spec" ng-click="vm.goToIndex('spec')">服务</dd>
                     <dd class="agree" ng-click="vm.goToIndex('agreement')">协议</dd>
                     <dd class="address" ng-click="vm.goToIndex('address')">常用地址</dd>
+                    <dd class="coupon" ng-click="vm.goToIndex('coupon')">我的代金券</dd>
                 </dl>
             </ion-side-menu>
         </ion-side-menus>

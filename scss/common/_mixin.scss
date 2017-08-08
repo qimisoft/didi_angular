@@ -28,7 +28,7 @@
     @return ($px/$rem) + rem;
 }
 
-@mixin sprite($viw, $vih, $riw, $rih, $rix, $riy, $rpw: 720px, $rph: 709px) {
+@mixin sprite($viw, $vih, $riw, $rih, $rix, $riy, $rpw: 720px, $rph: 710px) {
     width: $viw;
     height: $vih;
     background-image: url(../img/sprite.png);

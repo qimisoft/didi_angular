@@ -175,31 +175,31 @@
                 });*/
 
                 //根据地址获取经纬度，或根据经纬度获取地址
-                  /* AMap.service('AMap.Geocoder',function(){//回调函数
-                    //实例化Geocoder
-                    var geocoder = new AMap.Geocoder();
-                    //TODO: 使用geocoder 对象完成相关功能
+                /* AMap.service('AMap.Geocoder',function(){//回调函数
+                 //实例化Geocoder
+                 var geocoder = new AMap.Geocoder();
+                 //TODO: 使用geocoder 对象完成相关功能
 
-                     var lnglatXY=[31.2425647229,121.4709521602];//地图上所标点的坐标121.4859
-                    geocoder.getAddress(lnglatXY, function(status, result) {
-                        console.log(status + ";根据经纬度获取地址---" + JSON.stringify(result));
-                        if (status === 'complete' && result.info === 'OK') {
-                            //获得了有效的地址信息:
-                            //即，result.regeocode.formattedAddress
-                        }else{
-                            //获取地址失败
-                        }
-                    });
-                    geocoder.getLocation("上海浦东国际机场1号航站楼", function(status, result) {
-                        console.log(status + ";根据地址获取经纬度====；" + JSON.stringify(result));
-                        if (status === 'complete' && result.info === 'OK') {
-                            //TODO:获得了有效经纬度，可以做一些展示工作
-                            //比如在获得的经纬度上打上一个Marker
-                        }else{
-                            //获取经纬度失败
-                        }
-                    });
-                })*/
+                 var lnglatXY=[31.2425647229,121.4709521602];//地图上所标点的坐标121.4859
+                 geocoder.getAddress(lnglatXY, function(status, result) {
+                 console.log(status + ";根据经纬度获取地址---" + JSON.stringify(result));
+                 if (status === 'complete' && result.info === 'OK') {
+                 //获得了有效的地址信息:
+                 //即，result.regeocode.formattedAddress
+                 }else{
+                 //获取地址失败
+                 }
+                 });
+                 geocoder.getLocation("上海浦东国际机场1号航站楼", function(status, result) {
+                 console.log(status + ";根据地址获取经纬度====；" + JSON.stringify(result));
+                 if (status === 'complete' && result.info === 'OK') {
+                 //TODO:获得了有效经纬度，可以做一些展示工作
+                 //比如在获得的经纬度上打上一个Marker
+                 }else{
+                 //获取经纬度失败
+                 }
+                 });
+                 })*/
                 //上车前
                 vm.outCar = function(res,outTimer){
                     console.log("[outCar --实时查询订单---]");

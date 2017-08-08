@@ -4,12 +4,13 @@
  * created on 4/10/2017
  *
  * 取消行程(cancelTrip)弹窗添加 by Cici on 6/19/2017
- * 
+ *
  * 价格变动弹窗添加 by Cici on 7/3/2017
  *
  * 非三星用户弹窗添加 by Cici on 7/6/2017
  *
  * 红包弹窗添加 by Cici on 7/14/2017
+ 
  */
 (function() {
     'use strict';
@@ -70,7 +71,10 @@
                                     });
                                     that.confirmPopup.then(function(res) {
                                         if (res) {
-                                            $state.go('waitAnswer', { orderNo: vm.hasOrdering.orderNo, orderTime: vm.hasOrdering.orderTime });
+                                            $state.go('waitAnswer', {
+                                                orderNo: vm.hasOrdering.orderNo,
+                                                orderTime: vm.hasOrdering.orderTime
+                                            });
                                         }
                                     });
                                     break;
@@ -238,7 +242,7 @@
                 }
 
                 // 取消行程弹窗
-                this.cancelTrip = function(orderno) {
+                this.cancelTrip = function(orderno, loadOrder) {
                     var that = this;
                     that.confirmPopup = $ionicPopup.confirm({
                         title: '',
@@ -254,7 +258,11 @@
                             var params = { orderNo: orderno, force: true };
                             DataService.run("cancelCar", params, function(succRes) {
                                 if (succRes.success) {
-                                    $state.go("orderDetail", { orderNo: orderno });
+                                    if (loadOrder) {
+                                        loadOrder(orderno)
+                                    } else {
+                                        $state.go("orderDetail", { orderNo: orderno });
+                                    }
                                 } else {
                                     BpPopup.showToast("系统繁忙，请稍后重试");
                                 }
@@ -330,27 +338,97 @@
                         console.log("-----红包分享接口请求成功");
                         console.log(resp);
                         // resp.result = null;
-                        if (resp.success && resp.result) {
+                        if (resp.success && resp.result && resp.result.linkFlag === '01') {
                             !isPop && (scope.optionsShow.gift = true);
                             scope.giftInfo = {};
                             scope.giftInfo.link = resp.result.redbagLinkInfo.substring(resp.result.redbagLinkInfo.indexOf('http'));
                             scope.giftInfo.link = scope.giftInfo.link.substring(0, scope.giftInfo.link.indexOf('@@'));
                             scope.giftInfo.title = scope.giftInfo.title;
                             scope.giftInfo.content = scope.giftInfo.content;
+                            if (!isPop && scope.order.finishTime && (new Date().getTime() - new Date(scope.order.finishTime).getTime()) > 24 * 60 * 60 * 1000) {
+                                // 订单完成24小时之内弹，过了24小时不弹出弹窗
+                                return;
+                            }
                             that.confirmPopup = $ionicPopup.show({
                                 template: '<div class="gift-confirm"><div class="close" ng-click="confirmPopupClose()"></div><div class="inners"><button class="button" ng-click="giftShare()">分享得红包</button></div></div>',
-                                scope: scope,
+                                scope: scope
                             });
                             document.querySelector('.popup-container .popup').style.background = 'transparent';
                         } else {
-                            !isPop && (scope.optionsShow.gift = false);
-                            isPop && BpPopup.showToast('暂无可领取红包');
+                            if (!isPop) {
+                                if (resp.result.linkFlag === '02') {
+                                    scope.optionsShow.gift = true;
+                                } else {
+                                    scope.optionsShow.gift = false;
+                                }
+                            }
+                            isPop && (BpPopup.showToast('红包已领完'));
                         }
                     }, function(err) {
                         console.log(err);
-                    }, null, false);
+                    }, null, false, true);
+                }
+
+                this.getLocationByLngLat = function(callback) {
+                    //根据地址获取经纬度，或根据经纬度获取地址
+                    var lnglat = getDLntDLat();
+                    var endPoint = null;
+                    if (!lnglat) {
+                        callback(endPoint);
+                        return;
+                    }
+                    AMap.service('AMap.Geocoder', function() { //回调函数
+                        //实例化Geocoder
+                        var geocoder = new AMap.Geocoder();
+                        //TODO: 使用geocoder 对象完成相关功能
+
+                        var lnglatXY = [lnglat.dlng, lnglat.dlat]; //地图上所标点的坐标121.4859
+                        //var lnglatXY = [121.31985,31.1937];//地图上所标点的坐标121.4859
+
+                        geocoder.getAddress(lnglatXY, function(status, obj) {
+                            //获得了有效的地址信息:
+                            console.log(status + ";根据经纬度获取地址---" + JSON.stringify(obj));
+                            var object = obj.regeocode;
+                            if (status === 'complete' && obj.info === 'OK') {
+                                endPoint = {
+                                    displayName: object.addressComponent.building ? object.addressComponent.building : object.addressComponent.street + object.addressComponent.streetNumber,
+                                    lng: lnglat.dlng + '',
+                                    lat: lnglat.dlat + '',
+                                    cityName: object.addressComponent.city != '' ? object.addressComponent.city : object.addressComponent.province,
+                                    address: object.addressComponent.district + object.addressComponent.street + object.addressComponent.streetNumber
+                                };
+
+                                callback(endPoint);
+                                //ShareDataService.data_endPoint = vm.endPoint;
+                                //目的地定位完成
+                                //_getPres(vm,ShareDataService.data_selectedCarType);
+                            } else {
+                                BpPopup.showToast('终点位置获取失败，请手动选择');
+                                callback(endPoint);
+                            }
+                        });
+                    })
 
                 }
+
+                var getDLntDLat = this.getDLntDLat = function() {
+                    var pageName = "";
+                    var params = window.location.search; //// 格式为：" ?lat=nihao&lng=122 "
+                    console.log("search00000:" + params);
+                    if (!params) {
+                        return;
+                    }
+                    var parray = params.substring(1).split("&");
+                    var paramsJSON = {};
+                    for (var p = 0; p < parray.length; p++) {
+                        var pl = parray[p].split("=");
+                        paramsJSON[pl[0]] = pl[1];
+                    }
+                    console.log("paramsJSON===" + JSON.stringify(paramsJSON));
+                    //getLocationByLngLat(vm,paramsJSON.lng,paramsJSON.lat);
+                    return paramsJSON;
+                };
+
             }
         ])
 })();

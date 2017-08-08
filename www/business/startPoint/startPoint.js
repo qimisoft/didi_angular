@@ -38,8 +38,8 @@
             function($scope, $rootScope, $state, $location, $ionicHistory, startPointService, ShareDataService, aMapService, BpPopup, DataService) {
                 var vm = $scope.vm = {};
                 var amap, placeSearch, geocoder, infoWindow;
-                var roundDistance = 200,
-                    asideDiatance = 30;
+                var roundDistance = 100,
+                    asideDiatance = 20;
                 vm.mapCenter = { lng: "116.397428", lat: "39.90923", displayName: "天安门", address: "东城区广场东侧路44号", cityCode: "1", cityName: "北京市" }; //天安门，北京center
                 vm.isMapShow = false;
                 $scope.onBack = function() {
